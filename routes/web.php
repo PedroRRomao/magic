@@ -11,11 +11,25 @@
 |
 */
 
+
 Route::get('/', function () {
-    return view('welcome');
+  $links = \App\Link::all();
+
+  return view('welcome')->withLinks($links);
 });
 
+Route::get('/decks', function () {
+  return view('decks');
+});
+
+Route::get('/rules', function () {
+  return view('rules');
+});
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

@@ -1,5 +1,5 @@
 @extends('layouts.layout')
 
 @section('content')
-  <h1>My First Website</h1>
+  <h1>Decks</h1>
 @endsection
