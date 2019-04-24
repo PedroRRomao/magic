@@ -19,6 +19,10 @@ Route::get('/rules', 'PagesController@rules');
 
 Route::get('/profiles', 'ProfilesController@profiles');
 
+Route::post('/profiles', 'ProfilesController@store');
+
+Route::get('/profiles/edit', 'ProfilesController@edit');
+
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

@@ -14,6 +14,20 @@ class ProfilesController extends Controller
     //
     // return $profiles;
 
-    return view('profiles', compact('profiles'));
+    return view('profiles.index', compact('profiles'));
+  }
+
+  public function edit()
+  {
+    return view('profiles.edit');
+  }
+
+  public function store() {
+
+    $profile = new Profile();
+
+    $profile->first_name = request('first_name')
+
+
   }
 }
