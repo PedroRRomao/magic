@@ -18,9 +18,7 @@ Route::get('/', function () {
   return view('welcome')->withLinks($links);
 });
 
-Route::get('/decks', function () {
-  return view('decks');
-});
+Route::get('/decks', "PagesController@decks");
 
 Route::get('/rules', function () {
   return view('rules');
