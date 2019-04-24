@@ -8,14 +8,23 @@ use App\Deck;
 
 class PagesController extends Controller
 {
-  public function decks(){
-    // $decks = Deck::all();
-    //
-    // return $decks;
-    $decks = Deck::all();
+    public function home()
+    {
+      $links = \App\Link::all();
 
-    return view('decks', compact('decks'));
+      return view('welcome')->withLinks($links);
+    }
 
-  }
+    public function decks()
+    {
+      $decks = Deck::all();
 
+      return view('decks', compact('decks'));
+      
+    }
+
+    public function rules()
+    {
+      return view('rules');
+    }
 }
