@@ -11,20 +11,14 @@
 |
 */
 
+Route::get('/', 'PagesController@home');
 
-Route::get('/', function () {
-  $links = \App\Link::all();
+Route::get('/decks', 'PagesController@decks');
 
-  return view('welcome')->withLinks($links);
-});
+Route::get('/rules', 'PagesController@rules');
 
-Route::get('/decks', function () {
-  return view('decks');
-});
+Route::get('/profiles', 'ProfilesController@profiles');
 
-Route::get('/rules', function () {
-  return view('rules');
-});
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
