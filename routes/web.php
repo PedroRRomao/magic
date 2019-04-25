@@ -17,11 +17,15 @@ Route::get('/decks', 'PagesController@decks');
 
 Route::get('/rules', 'PagesController@rules');
 
-Route::get('/profiles', 'ProfilesController@profiles');
+Route::resource('profiles', 'ProfilesController');
 
-Route::post('/profiles', 'ProfilesController@store');
-
-Route::get('/profiles/edit', 'ProfilesController@edit');
+// Route::get('/profiles', 'ProfilesController@index');
+//
+// Route::get('/profiles/{profile}', 'ProfilesController@show');
+//
+// Route::post('/profiles', 'ProfilesController@store');
+//
+// Route::get('/profiles/edit', 'ProfilesController@edit');
 
 
 Route::group(['prefix' => 'admin'], function () {

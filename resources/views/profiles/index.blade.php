@@ -5,6 +5,9 @@
     <title>Profile</title>
   </head>
   <body>
-    Profiles
+    <h1>Profile:</h1>
+    @foreach ($profiles as $profile)
+      <li>{{ $profile->username }}</li>
+    @endforeach
   </body>
 </html>

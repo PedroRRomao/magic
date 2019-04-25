@@ -1,39 +1,67 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Profile</title>
-  </head>
-  <body>
-    <h1>Edit your Profile</h1>
-    <form method="POST" action="/profiles">
+@extends('layouts.app')
 
-      {{ csrf_field() }}
+@section('content')
 
-      <div>
-        <input type="text" name="first_name" placeholder="First Name">
+  <h1 class="title">Edit Profile</h1>
+
+
+  <form  method="POST" action="/profiles/{{ $profiles->id }}">
+
+    {{ method_field('PATCH') }}
+
+    {{ csrf_field() }}
+
+    <div class="field">
+
+      <label class="label">Username</label>
+
+      <div class="control">
+        <input class="input" type="text" placeholder="User Name" value="{{ $profiles->username }}">
       </div>
 
-      <div>
-        <input type="text" name="last_name" placeholder="Last Name">
+      <div class="field">
+        <label class="label">First Name</label>
+        <div class="control">
+          <input class="input" type="text" placeholder="First Name" value="{{ $profiles->first_name }}">
+        </div>
       </div>
 
-      <div>
-        <input type="text" name="country" placeholder="Country">
+      <div class="field">
+        <label class="label">Last Name</label>
+        <div class="control">
+          <input class="input" type="text" placeholder="Last Name" value="{{ $profiles->last_name }}">
+        </div>
       </div>
 
-      <div>
-        <input type="text" name="city" placeholder="City">
+      <div class="field">
+        <label class="label">Country</label>
+        <div class="control">
+          <input class="input" type="text" placeholder="Country" value="{{ $profiles->country }}">
+        </div>
       </div>
 
-      <div>
-        <input type="text" name="birthdate" placeholder="Birth date">
+      <div class="field">
+        <label class="label">City</label>
+        <div class="control">
+          <input class="input" type="text" placeholder="City" value="{{ $profiles->city }}">
+        </div>
       </div>
 
-      <div>
-        <button type="submit" name="submit">Submit</button>
+      <div class="field">
+        <label class="label">Birthdate</label>
+        <div class="control">
+          <input class="input" type="text" placeholder="BirthDate" value="{{ $profiles->birthdate }}">
+        </div>
       </div>
 
-    </form>
-  </body>
-</html>
+      <div class="field">
+        <div class="control">
+        <button type="submit" name="button is-link">Update Profile</button>
+        </div>
+      </div>
+
+    </div>
+
+  </form>
+
+@endsection
