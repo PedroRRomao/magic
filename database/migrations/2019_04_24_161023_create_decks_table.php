@@ -16,7 +16,7 @@ class CreateDecksTable extends Migration
         Schema::create('decks', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('Name');
-            $table->integer('CardNumber');
+            $table->integer('CardNumber')->nullable()->default('40');
             $table->text('Description');
             $table->integer('IdOwner')->unsigned();
             $table->foreign('IdOwner')->references('id')->on('users')->onUpdate('cascade')->onDelete('set null');;
