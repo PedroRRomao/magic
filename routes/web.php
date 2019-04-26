@@ -13,9 +13,11 @@
 
 Route::get('/', 'PagesController@home');
 
-Route::get('/decks', 'DecksController@decks');
-Route::get('/decks/create', 'DecksController@create');
-Route::post('/decks', 'DecksController@store');
+Route::resource('decks','DecksController');
+// Route::get('/decks', 'DecksController@decks');
+// Route::get('/decks/create', 'DecksController@create');
+// Route::post('/decks', 'DecksController@store');
+// Route::get('/decks/{deck}/edit', 'DecksController@edit');
 
 Route::get('/rules', 'PagesController@rules');
 
