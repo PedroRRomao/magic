@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>@yield('title', 'Magic')</title>
+        {{-- <title>@yield('title', 'Magic')</title> --}}
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -13,10 +13,11 @@
 
         <style>
             html, body {
-                /* background-image: url('../img/back1.jpg'); */
-                color: #636b6f;
+                background: url('/img/back1.jpg');
+                background-size: cover;
+                color: #FFFFFF;
                 font-family: 'Nunito', sans-serif;
-                font-weight: 200;
+                font-weight: 300;
                 height: 100vh;
                 margin: 0;
             }
@@ -50,7 +51,7 @@
             }
 
             .links > a {
-                color: #636b6f;
+                color: #FFFFFF;
                 padding: 0 25px;
                 font-size: 13px;
                 font-weight: 600;
@@ -83,7 +84,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Magic
+                    {{-- Magic --}}
                 </div>
 
                 <div class="links">

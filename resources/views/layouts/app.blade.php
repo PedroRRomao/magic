@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Magic') }}</title>
+    {{-- <title>{{ config('app.name', 'Magic') }}</title> --}}
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -18,10 +18,7 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
-<<<<<<< HEAD
-=======
 
->>>>>>> Diogo
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>

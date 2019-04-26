@@ -8,11 +8,8 @@
 <h1 class='title'>Edit your deck!</h1>
 
 <form method='POST' action='/decks/{{ $Deck->id}}'>
-<<<<<<< HEAD
 
   @method('PATCH')
-=======
->>>>>>> Diogo
   @csrf
   <div>
     <label class=label>Enter your Deck's Name:</label>
