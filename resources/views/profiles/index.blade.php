@@ -1,13 +1,17 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Profile</title>
-  </head>
-  <body>
-    <h1>Profile:</h1>
-    @foreach ($profiles as $profile)
-      <li>{{ $profile->username }}</li>
+@extends('layouts.app')
+
+@section('content')
+
+    <h1 class="title">Profile:</h1>
+    @foreach ($profile as $profile)
+
+      <li>
+        <a href="/profiles/{{ $profile->id }}">
+          {{ $profile->username }}
+        </a>
+
+      </li>
+
     @endforeach
-  </body>
-</html>
+
+@endsection
