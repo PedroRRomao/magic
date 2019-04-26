@@ -12,4 +12,14 @@
 <br>
 <div>
   <button> Start adding cards</button>
+
 </div>
+<br>
+{{-- <form method='GET' action= 'decks/{{ $Deck->id}}/edit'>
+  @method('GET')
+
+  @csrf
+  <div>
+    <button type = 'submit'> Edit your deck</button>
+  </div>
+</form> --}}
