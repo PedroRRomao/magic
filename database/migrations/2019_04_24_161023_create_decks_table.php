@@ -18,8 +18,8 @@ class CreateDecksTable extends Migration
             $table->string('Name');
             $table->integer('CardNumber');
             $table->text('Description');
-            $table->string('Owner')->unsigned();
-            $table->foreign('Owner')->references('name')->on('users');
+            $table->integer('IdOwner')->unsigned()->default(99);
+            $table->foreign('IdOwner')->references('id')->on('users')->onUpdate('cascade')->onDelete('set null');;
             $table->timestamps();
         });
     }
