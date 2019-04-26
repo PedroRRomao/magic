@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'PagesController@home');
+// Route::post('/decks', 'DecksController@edit');
 
 // Route::get('/decks', 'PagesController@decks');
 
