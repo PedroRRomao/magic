@@ -30,6 +30,7 @@ class DecksController extends Controller
 
   public function update()
   {
+<<<<<<< HEAD
     $Deck = Deck::find($id);
     $Deck-> Name = request('title');
     $Deck-> Description = request('Description');
@@ -37,6 +38,8 @@ class DecksController extends Controller
 
 
 
+=======
+>>>>>>> Diogo
 
     return;
 
