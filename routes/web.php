@@ -17,10 +17,8 @@ Route::get('/decks', 'PagesController@decks');
 
 Route::get('/rules', 'PagesController@rules');
 
-<<<<<<< HEAD
-
 Route::get('/profiles', 'ProfilesController@profiles');
-=======
+
 Route::resource('profiles', 'ProfilesController');
 
 // Route::get('/profiles', 'ProfilesController@index');
@@ -30,7 +28,7 @@ Route::resource('profiles', 'ProfilesController');
 // Route::post('/profiles', 'ProfilesController@store');
 //
 // Route::get('/profiles/edit', 'ProfilesController@edit');
->>>>>>> beja
+
 
 
 Route::group(['prefix' => 'admin'], function () {
