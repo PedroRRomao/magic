@@ -8,6 +8,6 @@ class Deck extends Model
 {
 
 
-  protected $guarded = [];
+  protected $fillable = ['Name', 'Description'];
 
 }
