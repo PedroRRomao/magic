@@ -4,8 +4,16 @@
 
 
 @section('content')
-  <h1 class='has-text-white'>Decks</h1>
-
+  <div>
+    <form method= 'GET' action= 'decks/create'>
+      @csrf
+    <div>
+      <button type="submit" class='button is-link is-pulled-right' style="border-radius: 5px;">Build a New One</button>
+    </div>
+    </form>
+    <h1 class='has-text-white'>Decks</h1>
+  </div>
+  <br>
   <ul>
     @foreach($decks as $Deck)
       <li>

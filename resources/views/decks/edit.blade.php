@@ -13,12 +13,12 @@
   @csrf
   <div>
     <label class='label has-text-white'>Enter your Deck's Name:</label>
-    <input type='text' name='title' placeholder='DeckName'value='{{ $Deck->Name }}'>
+    <input type='text' name='title' placeholder='DeckName' value='{{ $Deck->Name }}'>
   </div>
   <br>
   <div>
     <label class='label has-text-white'>Your Deck's new Description:</label>
-    <textarea name='Description' value='{{ $Deck->Description }}'></textarea>
+    <textarea name='Description' placeholder='Description' value='{{ $Deck->Description }}'></textarea>
   </div>
   <br>
   <div>
@@ -27,12 +27,13 @@
 </form>
 
 <form method='POST' action='/decks/{{ $Deck->id}}'>
+    @csrf
     @method('DELETE')
 
     <div>
       <button type='submit' class='button is-link'>Delete</button>
     </div>
-
+</form>
 
 
 @endsection

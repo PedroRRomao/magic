@@ -30,10 +30,10 @@ class DecksController extends Controller
 
   public function update(Deck $Deck)
   {
-
-    $Deck-> Name = request('title');
-    $Deck-> Description = request('Description');
-    $Deck->save();
+    $Deck->update(request(['title', 'Description']));
+    // // $Deck-> Name = request('title');
+    // // $Deck-> Description = request('Description');
+    // $Deck->save();
 
 
 
@@ -54,7 +54,7 @@ class DecksController extends Controller
   {
     $Deck->delete();
 
-    return redirect('/decks');
+    return view('decks.delete');
 
   }
 

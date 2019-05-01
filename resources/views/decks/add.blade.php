@@ -14,7 +14,7 @@
   <form method='GET' action='/decks'>
     @csrf
     <div>
-      <button type="submit" style="display: block; border-radius: 5px; margin: 0 auto;">Back to Decks page</button>
+      <button type="submit" class='button is-link' style="border-radius: 5px;">Back to Decks page</button>
     </div>
   </form>
 </div>

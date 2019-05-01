@@ -11,16 +11,16 @@
   @csrf
   <div>
     <label class='label has-text-white'>Enter your Deck's Name:</label>
-    <input type='text' name='title' placeholder='DeckName'>
+    <input type='text' name='title' placeholder='DeckName' required>
   </div>
   <br>
   <div>
     <label class='label has-text-white'>Your Deck's Description:</label>
-    <textarea name='Description'></textarea>
+    <textarea name='Description' required></textarea>
   </div>
   <br>
   <div>
-    <button type='submit'>Submit</button>
+    <button type='submit' class='button is-link'>Submit</button>
   </div>
 </form>
 
