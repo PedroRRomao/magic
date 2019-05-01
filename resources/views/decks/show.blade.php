@@ -5,8 +5,10 @@
 
 @section('content')
 
-<h1 class='title'>Here you have your decks</h1>
-<div>
+<h1 class='title'>{{ $Deck-> Name }}</h1>
+<div class='content'>{{ $Deck-> Description}}
 </div>
+<p>
+  <a href='/decks/{{ $Deck->id }}/edit'>Edit</a>
 <br>
 @endsection

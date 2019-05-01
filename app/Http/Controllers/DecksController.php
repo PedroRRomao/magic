@@ -25,7 +25,7 @@ class DecksController extends Controller
   {
     $Deck = Deck::findorFail($id);
 
-    return view('decks.show');
+    return view('decks.show', compact('Deck'));
 
   }
 
@@ -39,7 +39,7 @@ class DecksController extends Controller
 
 
 
-    return;
+    return redirect('/decks');
 
   }
 
