@@ -8,7 +8,7 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
         <!-- Styles -->
 
         <style>
@@ -48,7 +48,7 @@
             }
 
             .title {
-                font-size: 84px;
+                font-size: 30px;
                 color: #FFFFFF;
             }
 
@@ -66,9 +66,24 @@
                 margin-bottom: 30px;
             }
         </style>
+
     </head>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand active title">MAGIC</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li><a href='/decks'>Decks</a></li>
+          <li><a href="#">Profile</a></li>
+          <li><a href="#">Clans</a></li>
+          <li><a href="#">Play</a></li>
+          <li><a href="#">Rules</a></li>
+        </ul>
+      </div>
+    </nav>
     <body>
-      @yield('content')
+      {{-- @yield('content') --}}
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
@@ -84,10 +99,10 @@
                 </div>
             @endif
 
-            <div class="content">
+            {{-- <div class="content">
                 <div class="title m-b-md">
                     {{-- Magic --}}
-                </div>
+                {{-- </div> --}}
 
                 {{-- <div class="links">
                     <a href="https://laravel.com/docs">Docs</a>
@@ -98,7 +113,7 @@
                     <a href="https://forge.laravel.com">Forge</a>
                     <a href="https://github.com/laravel/laravel">GitHub</a>
                 </div> --}}
-            </div>
+            {{-- </div> --}}
         </div>
     </body>
 </html>
