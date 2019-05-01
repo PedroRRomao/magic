@@ -16,8 +16,17 @@
 
                     You are logged in!
                 </div>
+
             </div>
+            <br>
+            <br>
         </div>
     </div>
+    <form method='GET' action='/'>
+      @csrf
+      <div>
+        <button type="submit" style="display: block; border-radius: 5px; margin: 0 auto;">Back to main page</button>
+      </div>
+    </form>
 </div>
 @endsection
