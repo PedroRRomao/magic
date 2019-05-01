@@ -44,10 +44,12 @@
 
             .content {
                 text-align: center;
+                color: #FFFFFF;
             }
 
             .title {
                 font-size: 84px;
+                color: #FFFFFF;
             }
 
             .links > a {

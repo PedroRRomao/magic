@@ -21,17 +21,16 @@ class DecksController extends Controller
     return view('decks.create');
 
   }
-  public function show($id)
+  public function show(Deck $Deck)
   {
-    $Deck = Deck::findorFail($id);
 
     return view('decks.show', compact('Deck'));
 
   }
 
-  public function update($id)
+  public function update(Deck $Deck)
   {
-    $Deck = Deck::find($id);
+
     $Deck-> Name = request('title');
     $Deck-> Description = request('Description');
     $Deck->save();
@@ -43,27 +42,32 @@ class DecksController extends Controller
 
   }
 
-  public function edit($id)
+  public function edit(Deck $Deck)
   {
-    $Deck = Deck::findorFail($id);
 
     return view('decks.edit', compact('Deck'));
 
   }
 
-  public function destroy()
-  {
+  public function destroy(Deck $Deck)
 
-    return view();
+  {
+    $Deck->delete();
+
+    return redirect('/decks');
 
   }
 
   public function store()
   {
-    $Deck = new Deck();
-    $Deck-> Name = request('title');
-    $Deck-> Description = request('Description');
-    $Deck->save();
+    Deck::create([
+      'Name' => request('title'),
+      'Description' => request('Description')
+
+    ]);
+    // $Deck-> Name = request('title');
+    // $Deck-> Description = request('Description');
+    // $Deck->save();
 
 
     return view('decks.add');

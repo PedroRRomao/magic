@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
-@section('title', 'Decks')
+@section('title has-text-white', 'Decks')
 
 
 @section('content')
 
-<h1 class='title'>{{ $Deck-> Name }}</h1>
-<div class='content'>{{ $Deck-> Description}}
+<h1 class='title has-text-white'>{{ $Deck-> Name }}</h1>
+<div class='content has-text-white'>{{ $Deck-> Description}}
 </div>
 <p>
-  <a href='/decks/{{ $Deck->id }}/edit'>Edit</a>
+  <a class='has-text-white' href='/decks/{{ $Deck->id }}/edit'>Edit</a>
 <br>
 @endsection

@@ -4,12 +4,12 @@
 
 
 @section('content')
-  <h1>Decks</h1>
+  <h1 class='has-text-white'>Decks</h1>
 
   <ul>
     @foreach($decks as $Deck)
       <li>
-        <a href="/decks/{{ $Deck-> id }}">
+        <a class='has-text-white' href="/decks/{{ $Deck-> id }}">
           {{ $Deck-> Name }}
         </a>
       </li>
