@@ -22,7 +22,7 @@ Route::resource('decks','DecksController');
 Route::get('/rules', 'PagesController@rules');
 
 
-Route::get('/profiles', 'ProfilesController@profiles');
+
 
 
 Route::group(['prefix' => 'admin'], function () {
