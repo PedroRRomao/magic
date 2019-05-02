@@ -20,8 +20,9 @@ class CreateCardsTable extends Migration
             $table->string('type');
             $table->string('power');
             $table->text('efects');
-
             $table->timestamps();
+
+            $table->foreign('deck_id')->references('id')->on('decks')->onDelete('cascade');
         });
     }
 

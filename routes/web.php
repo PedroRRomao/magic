@@ -14,6 +14,7 @@
 Route::get('/', 'PagesController@home');
 
 Route::resource('decks','DecksController');
+Route::post('/decks/{deck}/cards', 'DeckCardsController@store');
 
 Route::get('/rules', 'PagesController@rules');
 
@@ -37,4 +38,4 @@ Route::group(['prefix' => 'admin'], function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
