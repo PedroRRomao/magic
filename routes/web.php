@@ -14,7 +14,7 @@
 Route::get('/', 'PagesController@home');
 
 Route::resource('decks','DecksController');
-Route::get('decks', 'DecksController@cards');
+
 Route::get('/rules', 'PagesController@rules');
 
 
