@@ -13,7 +13,7 @@
   @csrf
   <div>
     <label class='label has-text-white'>Enter your Deck's Name:</label>
-    <input type='text' name='title' placeholder='DeckName' value='{{ $Deck->Name }}'>
+    <input type='text' name='Name' placeholder='DeckName' value='{{ $Deck->Name }}'>
   </div>
   <br>
   <div>

@@ -11,7 +11,7 @@
   @csrf
   <div>
     <label class='label has-text-white'>Enter your Deck's Name:</label>
-    <input type='text' name='title' placeholder='DeckName' required>
+    <input type='text' name='Name' placeholder='DeckName' required>
   </div>
   <br>
   <div>
@@ -22,7 +22,17 @@
   <div>
     <button type='submit' class='button is-link'>Submit</button>
   </div>
-</form>
+  <br>
+  @if ($errors->any())
+  <div class='notification is-danger'>
+    <ul>
+      @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+      @endforeach
+    </ul>
+  </div>
+  @endif
 
+</form>
 
 @endsection

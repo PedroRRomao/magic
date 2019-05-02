@@ -15,12 +15,14 @@ class DecksController extends Controller
 
   }
 
+
   public function create()
   {
 
     return view('decks.create');
 
   }
+
   public function show(Deck $Deck)
   {
 
@@ -30,7 +32,7 @@ class DecksController extends Controller
 
   public function update(Deck $Deck)
   {
-    $Deck->update(request(['title', 'Description']));
+    $Deck->update(request(['Name', 'Description']));
     // // $Deck-> Name = request('title');
     // // $Deck-> Description = request('Description');
     // $Deck->save();
@@ -60,14 +62,12 @@ class DecksController extends Controller
 
   public function store()
   {
-    Deck::create([
-      'Name' => request('title'),
-      'Description' => request('Description')
+      Deck::create(request()->validate([
+      'Name' => ['required', 'min:3', 'max:30'],
+      'Description' => 'required'
+    ]));
 
-    ]);
-    // $Deck-> Name = request('title');
-    // $Deck-> Description = request('Description');
-    // $Deck->save();
+
 
 
     return view('decks.add');
