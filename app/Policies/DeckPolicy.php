@@ -19,7 +19,7 @@ class DeckPolicy
      */
     public function view(User $user, Deck $deck)
     {
-        return $deck->user_id == $user->id;
+        return $deck->owner_id == $user->id;
     }
 
     /**

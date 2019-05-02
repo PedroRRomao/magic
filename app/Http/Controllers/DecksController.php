@@ -16,7 +16,7 @@ class DecksController extends Controller
 
   public function index()
   {
-    $decks = Deck::where('user_id', auth()->id())->get();
+    $decks = Deck::where('owner_id', auth()->id())->get();
 
     return view('decks.index', compact('decks'));
 
@@ -73,11 +73,11 @@ class DecksController extends Controller
       'Name' => ['required', 'min:3', 'max:30'],
       'Description' => 'required'
     ]);
-      $attributes['user_id'] = auth()->id();
+      $attributes['owner_id'] = auth()->id();
 
       Deck::create($attributes);
 
-    return view('decks.add');
+    return redirect('/decks');
 
   }
 

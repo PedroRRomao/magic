@@ -8,7 +8,7 @@ class Deck extends Model
 {
 
 
-  protected $fillable = ['Name', 'Description'];
+  protected $fillable = ['Name', 'Description','owner_id'];
 
   public function cards()
   {
