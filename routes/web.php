@@ -13,7 +13,7 @@
 
 Route::get('/', 'PagesController@home');
 
-Route::get('/decks', 'PagesController@decks');
+Route::resource('decks','DecksController');
 
 Route::get('/rules', 'PagesController@rules');
 

@@ -4,19 +4,20 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>@yield('title', 'Magic')</title>
+        {{-- <title>@yield('title', 'Magic')</title> --}}
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
         <!-- Styles -->
 
         <style>
             html, body {
-                /* background-image: url('../img/back1.jpg'); */
-                color: #636b6f;
+                background: url('/img/back1.jpg');
+                background-size: cover;
+                color: #FFFFFF;
                 font-family: 'Nunito', sans-serif;
-                font-weight: 200;
+                font-weight: 300;
                 height: 100vh;
                 margin: 0;
             }
@@ -43,14 +44,16 @@
 
             .content {
                 text-align: center;
+                color: #FFFFFF;
             }
 
             .title {
-                font-size: 84px;
+                font-size: 30px;
+                color: #FFFFFF;
             }
 
             .links > a {
-                color: #636b6f;
+                color: #FFFFFF;
                 padding: 0 25px;
                 font-size: 13px;
                 font-weight: 600;
@@ -63,9 +66,24 @@
                 margin-bottom: 30px;
             }
         </style>
+
     </head>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand active title">MAGIC</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li><a href='/decks'>Decks</a></li>
+          <li><a href="#">Profile</a></li>
+          <li><a href="#">Clans</a></li>
+          <li><a href="#">Play</a></li>
+          <li><a href="#">Rules</a></li>
+        </ul>
+      </div>
+    </nav>
     <body>
-      @yield('content')
+      {{-- @yield('content') --}}
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
@@ -81,12 +99,12 @@
                 </div>
             @endif
 
-            <div class="content">
+            {{-- <div class="content">
                 <div class="title m-b-md">
-                    Magic
-                </div>
+                    {{-- Magic --}}
+                {{-- </div> --}}
 
-                <div class="links">
+                {{-- <div class="links">
                     <a href="https://laravel.com/docs">Docs</a>
                     <a href="https://laracasts.com">Laracasts</a>
                     <a href="https://laravel-news.com">News</a>
@@ -94,8 +112,8 @@
                     <a href="https://nova.laravel.com">Nova</a>
                     <a href="https://forge.laravel.com">Forge</a>
                     <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-            </div>
+                </div> --}}
+            {{-- </div> --}}
         </div>
     </body>
 </html>
