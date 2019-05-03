@@ -73,13 +73,13 @@
         <div class="navbar-header">
           <a class="navbar-brand active title">MAGIC</a>
         </div>
-        <ul class="nav navbar-nav">
-          <li><a href='/decks'>Decks</a></li>
-          <li><a href="#">Profile</a></li>
-          <li><a href="#">Clans</a></li>
-          <li><a href="#">Play</a></li>
-          <li><a href="#">Rules</a></li>
-        </ul>
+            <ul class="nav navbar-nav">
+                <li><a href='/decks'>Decks</a></li>
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">Clans</a></li>
+                <li><a href="#">Play</a></li>
+                <li><a href="#">Rules</a></li>
+            </ul>
       </div>
     </nav>
     <body>
@@ -98,22 +98,6 @@
                     @endauth
                 </div>
             @endif
-
-            {{-- <div class="content">
-                <div class="title m-b-md">
-                    {{-- Magic --}}
-                {{-- </div> --}}
-
-                {{-- <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div> --}}
-            {{-- </div> --}}
         </div>
     </body>
 </html>

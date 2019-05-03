@@ -7,9 +7,16 @@ use App\Deck;
 
 class DecksController extends Controller
 {
+
+  public function __construct(){
+    $this->middleware('auth');
+  }
+
+
+
   public function index()
   {
-    $decks = Deck::all();
+    $decks = Deck::where('owner_id', auth()->id())->get();
 
     return view('decks.index', compact('decks'));
 
@@ -25,7 +32,7 @@ class DecksController extends Controller
 
   public function show(Deck $Deck)
   {
-
+    $this->authorize('view', $Deck);
     return view('decks.show', compact('Deck'));
 
   }
@@ -62,15 +69,15 @@ class DecksController extends Controller
 
   public function store()
   {
-      Deck::create(request()->validate([
+      $attributes = request()->validate([
       'Name' => ['required', 'min:3', 'max:30'],
       'Description' => 'required'
-    ]));
+    ]);
+      $attributes['owner_id'] = auth()->id();
 
+      Deck::create($attributes);
 
-
-
-    return view('decks.add');
+    return redirect('/decks');
 
   }
 
