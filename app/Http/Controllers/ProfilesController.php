@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Profile;
+use Illuminate\Support\Facades\Auth;
 
 class ProfilesController extends Controller
 {
@@ -39,9 +40,11 @@ class ProfilesController extends Controller
 
     $attributes = $this->validateProfile();
 
+    $user = Auth::user();
+
     $attributes['user_id'] = auth()->id();
-    $attributes['email'] = auth()->email();
-    
+    $attributes['email'] = $user->email;
+
 
     // Profile::create(request(['username', 'first_name', 'last_name', 'email', 'country', 'city', 'birthdate']));
     Profile::create($attributes);
