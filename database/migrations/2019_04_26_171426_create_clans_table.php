@@ -17,7 +17,6 @@ class CreateClansTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->unsignedInteger('members_number');
-            $table->unsignedInteger('lider_id');
             $table->unsignedInteger('victory')->default(0);
             $table->unsignedInteger('defeat')->default(0);
             $table->timestamps();

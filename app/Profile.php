@@ -12,4 +12,9 @@ class Profile extends Model
     {
         return $this->belongsTo('App\User');
     }
+
+  public function clan()
+    {
+        return $this->belongsTo('App\Clan');
+    }
 }

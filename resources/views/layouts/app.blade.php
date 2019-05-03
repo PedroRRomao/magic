@@ -81,8 +81,18 @@
         </nav>
 
         <main class="py-4">
+          <div id="content-box" class="box">
             @yield('content')
+          </div>
         </main>
     </div>
+
+    <style media="screen">
+      #content-box{
+        margin-left:20%;
+        margin-top:10%;
+        margin-right: 20%;
+      }
+    </style>
 </body>
 </html>
