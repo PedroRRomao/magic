@@ -73,6 +73,15 @@
         <div class="navbar-header">
           <a class="navbar-brand active title">MAGIC</a>
         </div>
+
+        <ul class="nav navbar-nav">
+          <li><a href='/decks'>Decks</a></li>
+          <li><a href="/profiles">Profile</a></li>
+          <li><a href="#">Clans</a></li>
+          <li><a href="#">Play</a></li>
+          <li><a href="#">Rules</a></li>
+        </ul>
+
             <ul class="nav navbar-nav">
                 <li><a href='/decks'>Decks</a></li>
                 <li><a href="#">Profile</a></li>
@@ -80,10 +89,12 @@
                 <li><a href="#">Play</a></li>
                 <li><a href="#">Rules</a></li>
             </ul>
+
       </div>
     </nav>
     <body>
-      {{-- @yield('content') --}}
+
+
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
@@ -99,5 +110,6 @@
                 </div>
             @endif
         </div>
+        @yield('content')
     </body>
 </html>

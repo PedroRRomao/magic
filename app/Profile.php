@@ -14,7 +14,9 @@ class Profile extends Model
     }
 
   public function clan()
+    
   {
       return $this->belongsTo(Clan::class);
   }
+
 }
