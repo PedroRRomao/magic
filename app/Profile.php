@@ -15,6 +15,7 @@ class Profile extends Model
 
   public function clan()
 <<<<<<< HEAD
+<<<<<<< HEAD
     {
         return $this->belongsTo('App\Clan');
     }
@@ -23,4 +24,11 @@ class Profile extends Model
       return $this->belongsTo(Clan::class);
   }
 >>>>>>> a278c967b12cf6a5a80f83d86d3f2e5196ea4bbb
+=======
+    
+  {
+      return $this->belongsTo(Clan::class);
+  }
+
+>>>>>>> 7b157700e6e888186cf3aaf29de0570af70547ad
 }
