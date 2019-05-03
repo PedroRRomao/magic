@@ -30,7 +30,7 @@ class ProfilesController extends Controller
 
   public function create()
   {
-    
+
     return view('profiles.create');
   }
 
@@ -40,6 +40,8 @@ class ProfilesController extends Controller
     $attributes = $this->validateProfile();
 
     $attributes['user_id'] = auth()->id();
+    $attributes['email'] = auth()->email();
+    
 
     // Profile::create(request(['username', 'first_name', 'last_name', 'email', 'country', 'city', 'birthdate']));
     Profile::create($attributes);
