@@ -39,6 +39,6 @@ class User extends \TCG\Voyager\Models\User
 
     public function profile()
     {
-        return $this->hasOne('App\Profile');
+        return $this->hasOne(Profile::class);
     }
 }
