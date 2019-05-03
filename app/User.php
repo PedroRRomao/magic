@@ -39,6 +39,12 @@ class User extends \TCG\Voyager\Models\User
 
     public function profile()
     {
-        return $this->hasOne('App\Profile');
+        return $this->hasOne(Profile::class);
     }
+
+    public function decks()
+    {
+      return $this->hasMany(Deck::class);
+    }
+
 }
