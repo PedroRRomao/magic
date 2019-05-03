@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Auth;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -28,7 +29,8 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+
+    protected $redirectTo = "/profiles/create";
 
     /**
      * Create a new controller instance.
