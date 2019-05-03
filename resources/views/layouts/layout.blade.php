@@ -81,15 +81,6 @@
           <li><a href="#">Play</a></li>
           <li><a href="#">Rules</a></li>
         </ul>
-
-            <ul class="nav navbar-nav">
-                <li><a href='/decks'>Decks</a></li>
-                <li><a href="#">Profile</a></li>
-                <li><a href="#">Clans</a></li>
-                <li><a href="#">Play</a></li>
-                <li><a href="#">Rules</a></li>
-            </ul>
-
       </div>
     </nav>
     <body>
