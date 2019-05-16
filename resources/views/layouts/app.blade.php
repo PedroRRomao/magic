@@ -10,6 +10,7 @@
     {{-- <title>{{ config('app.name', 'Magic') }}</title> --}}
 
     <!-- Scripts -->
+    <script src="path/to/lightbox.js"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
@@ -17,6 +18,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
 
     <!-- Styles -->
+    <link href="path/to/lightbox.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style>

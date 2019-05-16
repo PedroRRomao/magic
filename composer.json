@@ -10,6 +10,7 @@
     "require": {
         "php": "^7.1.3",
         "fideloper/proxy": "^4.0",
+        "jeroenzwart/laravel-csv-seeder": "^1.2",
         "laravel/framework": "5.8.*",
         "laravel/tinker": "^1.0",
         "tcg/voyager": "^1.2"
@@ -37,6 +38,7 @@
             "App\\": "app/"
         },
         "classmap": [
+            "database",
             "database/seeds",
             "database/factories"
         ]

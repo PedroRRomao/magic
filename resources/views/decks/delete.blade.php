@@ -5,7 +5,7 @@
 
 @section('content')
 
-<h1 class='title has-text-white'>You have deleted your deck succesfully.</h1>
+<h1 class='title '>You have deleted your deck succesfully.</h1>
 <br>
 <form method= 'GET' action= '/decks'>
   @csrf

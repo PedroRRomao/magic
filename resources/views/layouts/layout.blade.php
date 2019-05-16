@@ -10,6 +10,7 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
         <!-- Styles -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
 
         <style>
             html, body {
@@ -80,6 +81,7 @@
           <li><a href="#">Clans</a></li>
           <li><a href="#">Play</a></li>
           <li><a href="#">Rules</a></li>
+          <li><a href="/cards">All cards</a></li>
         </ul>
       </div>
     </nav>
@@ -101,6 +103,8 @@
                 </div>
             @endif
         </div>
+
         @yield('content')
+
     </body>
 </html>

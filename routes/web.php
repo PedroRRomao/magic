@@ -18,9 +18,12 @@ Route::post('/decks/{deck}/cards', 'DeckCardsController@store');
 
 Route::get('/rules', 'PagesController@rules');
 
+Route::get('/cards', 'PagesController@cards');
+
 Route::get('/profiles', 'ProfilesController@profiles');
 
 Route::resource('profiles', 'ProfilesController');
+
 
 
 Route::group(['prefix' => 'admin'], function () {

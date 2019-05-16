@@ -5,9 +5,9 @@
 
 @section('content')
 
-<h1 class='title has-text-white'>Congratulations!</h1>
+<h1 class='title '>Congratulations!</h1>
 <div>
-  <label class='has-text-white'> You have created your deck, now it's time to add cards.</label>
+  <label class=''> You have created your deck, now it's time to add cards.</label>
 </div>
 <br>
 <div>
