@@ -22,8 +22,6 @@ class CreateDecksTable extends Migration
             $table->json('cards_array')->default('[]');
             $table->text('Description');
             $table->timestamps();
-
-
         });
     }
 

@@ -7,6 +7,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 use App\Deck;
 use App\Card;
+use App\Profile;
 
 class DecksController extends Controller
 {
@@ -20,7 +21,7 @@ class DecksController extends Controller
   public function index()
   {
     $decks = Deck::where('owner_id', auth()->id())->get();
-    
+
     return view('decks.index', compact('decks'));
 
   }
@@ -77,19 +78,21 @@ class DecksController extends Controller
   {
       $attributes = $this->validateDeck();
 
-      $attributes['owner_id'] = auth()->id();
+      $user = auth()->id();
+
+      $attributes['owner_id'] = $user;
 
       $cards_number = Card::count();
 
       $array = array();
 
-      for($i = 1;$i<=(47);$i++)
+      for($i = 1;$i<=(38);$i++)
       {
           $monsters = rand(1,$cards_number - 20);
           array_push($array, $monsters);
       }
 
-      for($i = 1;$i<=(18);$i++)
+      for($i = 1;$i<=(23);$i++)
       {
           $mana = rand(255,275);
           array_push($array, $mana);
@@ -98,7 +101,10 @@ class DecksController extends Controller
 
       $attributes['cards_array'] = $array;
 
+
+
       Deck::create($attributes);
+
 
       // redireccionar para mostrar as cartas
       return redirect('/decks');
