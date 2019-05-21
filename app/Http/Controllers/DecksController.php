@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Auth;
 use App\Deck;
+use App\Card;
 
 class DecksController extends Controller
 {
@@ -17,7 +20,7 @@ class DecksController extends Controller
   public function index()
   {
     $decks = Deck::where('owner_id', auth()->id())->get();
-
+    
     return view('decks.index', compact('decks'));
 
   }
@@ -33,7 +36,10 @@ class DecksController extends Controller
   public function show(Deck $Deck)
   {
     $this->authorize('view', $Deck);
-    return view('decks.show', compact('Deck'));
+
+    $Card = Card::findMany($Deck['cards_array']);
+
+    return view('decks.show', compact('Deck', 'Card'));
 
   }
 
@@ -69,16 +75,42 @@ class DecksController extends Controller
 
   public function store()
   {
-      $attributes = request()->validate([
-      'Name' => ['required', 'min:3', 'max:30'],
-      'Description' => 'required'
-    ]);
+      $attributes = $this->validateDeck();
+
       $attributes['owner_id'] = auth()->id();
+
+      $cards_number = Card::count();
+
+      $array = array();
+
+      for($i = 1;$i<=(47);$i++)
+      {
+          $monsters = rand(1,$cards_number - 20);
+          array_push($array, $monsters);
+      }
+
+      for($i = 1;$i<=(18);$i++)
+      {
+          $mana = rand(255,275);
+          array_push($array, $mana);
+      }
+
+
+      $attributes['cards_array'] = $array;
 
       Deck::create($attributes);
 
-    return redirect('/decks');
+      // redireccionar para mostrar as cartas
+      return redirect('/decks');
 
+  }
+
+  public function validateDeck(){
+
+    return request()->validate([
+      'Name'=>['required', 'min:3', 'max:30'],
+      'Description'=>'required'
+    ]);
   }
 
 }

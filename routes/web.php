@@ -13,15 +13,21 @@
 
 Route::get('/', 'PagesController@home');
 
-Route::resource('decks','DecksController');
-Route::post('/decks/{deck}/cards', 'DeckCardsController@store');
+
+
+// Route::post('/decks/{deck}/cards', 'DeckCardsController@store');
 
 Route::get('/rules', 'PagesController@rules');
 
 Route::get('/cards', 'PagesController@cards');
 
+Route::get('/decks', 'DecksController@decks');
+
 Route::get('/profiles', 'ProfilesController@profiles');
 
+Route::post('/decks/{deck}', 'DecksController@store');
+
+Route::resource('decks','DecksController');
 Route::resource('profiles', 'ProfilesController');
 
 

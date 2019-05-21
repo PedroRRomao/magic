@@ -9,14 +9,22 @@
 
 <form method='POST' action='/decks'>
   @csrf
-  <div>
-    <label class='label'>Enter your Deck's Name:</label>
-    <input type='text' name='Name' placeholder='DeckName' required>
+  <div class="field">
+
+    <label class="label">Deck Name</label>
+
+    <div class="control">
+      <input class="input" type="text" name="Name" placeholder="Name" required>
+    </div>
   </div>
   <br>
-  <div>
-    <label class='label '>Your Deck's Description:</label>
-    <textarea name='Description' required></textarea>
+  <div class="field">
+
+    <label class="label">Your Deck Description</label>
+
+    <div class="control">
+      <input class="input" type="text" name="Description" placeholder="Description" required>
+    </div>
   </div>
   <br>
   <div>

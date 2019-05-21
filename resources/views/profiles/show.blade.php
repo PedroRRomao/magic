@@ -9,8 +9,11 @@
   </div>
 
   <div class="box">
-      <h1>Clan: {{ $profile->clan->name }}</h1>
+    @if(is_null($profile->clan))
 
+    @else
+      <h1>Clan: {{ $profile->clan->name }}</h1>
+    @endif
   </div>
 
   <p>

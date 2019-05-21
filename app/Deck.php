@@ -7,8 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Deck extends Model
 {
 
+  protected $casts = [
+        'cards_array' => 'array'
+    ];
 
-  protected $fillable = ['Name', 'Description','owner_id'];
+  protected $guarded = [];
 
   public function cards()
   {
@@ -18,12 +21,6 @@ class Deck extends Model
   public function user()
   {
     return $this->belongsTo(User::class);
-  }
-
-
-  public function addCard($name){
-    $this->tasks()->create(compact('name'));
-
   }
 
 }

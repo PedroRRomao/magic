@@ -1,18 +1,18 @@
 @extends('layouts.app')
 
-@section('title has-text-white', 'Decks')
+@section('title', 'Decks')
 
 
 @section('content')
 
-<h1 class='title has-text-white'>{{ $Deck-> Name }}</h1>
-<div class='content has-text-white'>{{ $Deck-> Description}}
+<h1 class='title'>{{ $Deck->Name }}</h1>
+<div class='content'>{{ $Deck->Description}}
 
 </div>
 <form method= 'GET' action= '/decks/{{ $Deck->id }}/edit'>
   @csrf
   <div>
-  <button type='submit' class='has-text-white button is-link'>Edit</button>
+  <button type='submit' class='has-text-white button is-link'>Edit Deck Name</button>
  </div>
 </form>
 <br>
@@ -20,8 +20,48 @@
 <div class="card">
     <div class="card-header has-text-dark">Deck Cards</div>
       <div class="card-body">
-          @foreach ($Deck->cards as $Card)
-            <li>{{ $Card-> Name }}</li>
+          @foreach ($Card as $Cards)
+
+            @if ($loop->first)
+              <div class="card">
+                <div class="card-body">
+                  <div class="card-deck">
+                    <div class="card">
+                      <a href="{{ URL::asset($Cards->src) }}" target="_blank">
+                        <img src="{{ URL::asset($Cards->src) }}" alt="Card image cap">
+                      </a>
+
+                    </div>
+
+            @elseif (($loop->iteration)%5 == 0)
+
+                    <div class="card">
+                      <a href="{{ URL::asset($Cards->src) }}" target="_blank">
+                        <img src="{{ URL::asset($Cards->src) }}" alt="Card image cap">
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            @elseif ((($loop->iteration)-1)%5 == 0)
+              <div class="card">
+                <div class="card-body">
+                  <div class="card-deck">
+                    <div class="card">
+                      <a href="{{ URL::asset($Cards->src) }}" target="_blank">
+                        <img src="{{ URL::asset($Cards->src) }}" alt="Card image cap">
+                      </a>
+                    </div>
+            @else
+                    <div class="card">
+                      <a href="{{ URL::asset($Cards->src) }}" target="_blank">
+                        <img src="{{ URL::asset($Cards->src) }}" alt="Card image cap">
+                      </a>
+                    </div>
+            @endif
+
+            {{-- <img src="{{ URL::asset($Cards->src) }}" alt="Card image cap"> --}}
           @endforeach
       </div>
 </div>
