@@ -23,10 +23,12 @@ class CreateProfilesTable extends Migration
           $table->string("country");
           $table->string("city");
           $table->date("birthdate");
+          $table->unsignedInteger("clan_id")->nullable();
           $table->timestamps();
 
-          $table->foreign('user_id')->references('id')->on('users');
-
+          $table->foreign("user_id")->references("id")->on("users")->onDelete("cascade");
+          $table->foreign("email")->references("email")->on("users")->onDelete("cascade");
+          $table->foreign("clan_id")->references("id")->on("clans")->onUpdate("cascade")->onDelete("set null");
         });
     }
 

@@ -14,24 +14,23 @@
 Route::get('/', 'PagesController@home');
 // Route::post('/decks', 'DecksController@edit');
 
-// Route::get('/decks', 'PagesController@decks');
+
+
+// Route::post('/decks/{deck}/cards', 'DeckCardsController@store');
 
 Route::get('/rules', 'PagesController@rules');
 
+Route::get('/cards', 'PagesController@cards');
 
+Route::get('/decks', 'DecksController@decks');
 
 Route::get('/profiles', 'ProfilesController@profiles');
 
-Route::resource('profiles', 'ProfilesController');
-Route::resource('decks', 'DecksController');
+Route::post('/decks/{deck}', 'DecksController@store');
 
-// Route::get('/profiles', 'ProfilesController@index');
-//
-// Route::get('/profiles/{profile}', 'ProfilesController@show');
-//
-// Route::post('/profiles', 'ProfilesController@store');
-//
-// Route::get('/profiles/edit', 'ProfilesController@edit');
+Route::resource('decks','DecksController');
+Route::resource('profiles', 'ProfilesController');
+
 
 
 
@@ -41,4 +40,4 @@ Route::group(['prefix' => 'admin'], function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');

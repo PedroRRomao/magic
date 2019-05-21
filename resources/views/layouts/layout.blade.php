@@ -10,6 +10,8 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
         <!-- Styles -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
 
         <style>
             html, body {
@@ -44,10 +46,12 @@
 
             .content {
                 text-align: center;
+                color: #FFFFFF;
             }
 
             .title {
-                font-size: 84px;
+                font-size: 30px;
+                color: #FFFFFF;
             }
 
             .links > a {
@@ -64,9 +68,27 @@
                 margin-bottom: 30px;
             }
         </style>
+
     </head>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand active title">MAGIC</a>
+        </div>
+
+        <ul class="nav navbar-nav">
+          <li><a href='/decks'>Decks</a></li>
+          <li><a href="/profiles">Profile</a></li>
+          <li><a href="#">Clans</a></li>
+          <li><a href="#">Play</a></li>
+          <li><a href="#">Rules</a></li>
+          <li><a href="/cards">All cards</a></li>
+        </ul>
+      </div>
+    </nav>
     <body>
-      @yield('content')
+
+
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
@@ -81,22 +103,9 @@
                     @endauth
                 </div>
             @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    {{-- Magic --}}
-                </div>
-
-                {{-- <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div> --}}
-            </div>
         </div>
+
+        @yield('content')
+
     </body>
 </html>

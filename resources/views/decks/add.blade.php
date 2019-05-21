@@ -5,21 +5,17 @@
 
 @section('content')
 
-<h1 class='title'>Congratulations!</h1>
+<h1 class='title '>Congratulations!</h1>
 <div>
-  <label> You have created your deck, now it's time to add cards.</label>
+  <label class=''> You have created your deck, now it's time to add cards.</label>
 </div>
 <br>
 <div>
-  <button> Start adding cards</button>
-
+  <form method='GET' action='/decks'>
+    @csrf
+    <div>
+      <button type="submit" class='button is-link' style="border-radius: 5px;">Back to Decks page</button>
+    </div>
+  </form>
 </div>
-<br>
-{{-- <form method='GET' action= 'decks/{{ $Deck->id}}/edit'>
-  @method('GET')
-
-  @csrf
-  <div>
-    <button type = 'submit'> Edit your deck</button>
-  </div>
-</form> --}}
+@endsection

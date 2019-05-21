@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Card;
 
 class PagesController extends Controller
 {
@@ -21,5 +21,15 @@ class PagesController extends Controller
     public function rules()
     {
       return view('rules');
+    }
+
+    public function cards()
+    {
+
+      $cards = Card::all();
+
+
+      return view('cards', compact('cards'));
+
     }
 }
