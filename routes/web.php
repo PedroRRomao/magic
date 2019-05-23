@@ -30,7 +30,7 @@ Route::post('/decks/{deck}', 'DecksController@store');
 
 Route::resource('decks','DecksController');
 Route::resource('profiles', 'ProfilesController');
-
+Route::resource('clans', 'ClansController');
 
 
 
