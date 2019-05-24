@@ -62,7 +62,7 @@ class ClansController extends Controller
     {
       // $this->authorize('view', $Clan);
 
-      $Profile = Profile::findMany();
+      $Profile = Profile::where('clan_id', $Clan->id);
 
       dd($Profile);
 
