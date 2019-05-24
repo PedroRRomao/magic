@@ -12,15 +12,19 @@ class TradeNotification extends Notification
     use Queueable;
 
     private $details;
+    protected $card_user;
+    protected $card_trader;
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-     public function __construct($details)
+     public function __construct($details, $card_user, $card_trader)
     {
         $this->details = $details;
+        $this->card_user = $card_user;
+        $this->card_trader = $card_trader;
     }
 
     /**
@@ -42,8 +46,15 @@ class TradeNotification extends Notification
      */
     public function toMail($notifiable)
     {
+      $image_trade = $this->details['image_trader']->src;
+      $image_user = $this->details['image_user']->src;
+
         return (new MailMessage)
                     ->line($this->details['greeting'])
+                    ->line('Trade this card:')
+                    ->line("http://127.0.0.1:8000/".$image_trade)
+                    ->line('With this card:')
+                    ->line("http://127.0.0.1:8000/".$image_user)
                     ->action('Join Trade', $this->details['actionURL'])
                     ->line('Thank you for using our application!');
     }
@@ -57,13 +68,15 @@ class TradeNotification extends Notification
     public function toArray($notifiable)
     {
         return [
-            //
+
         ];
     }
 
     public function toDatabase($notifiable)
     {
         return [
+            'image_trade' => $this->card_trader->id,
+            'image_user' => $this->card_user->id,
             'order_id' => $this->details['order_id']
         ];
     }

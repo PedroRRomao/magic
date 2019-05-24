@@ -22,7 +22,6 @@ Route::get('/cards', 'PagesController@cards');
 
 Route::get('/decks', 'DecksController@decks');
 
-
 Route::get('/clans', 'ClansController@clans');
 
 Route::post('/decks/{deck}', 'DecksController@store');
@@ -33,13 +32,17 @@ Route::resource('decks','DecksController');
 Route::resource('profiles', 'ProfilesController');
 Route::resource('clans', 'ClansController');
 
-Route::get('/decktrade/{deck}/trade/{decktrade}', 'DeckTradeController@edit');
+Route::get('/decktrade/{deck}/trade/{decktrade}', 'DeckTradeController@update');
 
 Route::resource('decktrade','DeckTradeController');
 
 Route::resource('profiles', 'ProfilesController');
+//
+// Route::get('send', 'DeckTradeController@sendNotification');
 
-Route::get('send', 'DeckTradeController@sendNotification');
+Route::patch('/send/{user}', 'DeckTradeController@trade');
+
+Route::get('/decktrade/trade/{user}', 'DeckTradeController@edit');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

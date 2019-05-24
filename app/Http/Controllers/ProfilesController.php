@@ -60,9 +60,10 @@ class ProfilesController extends Controller
 
   public function update($id) {
 
-    $this->authorize('view', $profile);
 
     $profile = Profile::findOrFail($id);
+
+    $this->authorize('view', $profile);
 
     $profile->first_name = request('first_name');
     $profile->last_name = request('last_name');
@@ -85,7 +86,7 @@ class ProfilesController extends Controller
   public function validateProfile(){
 
     return request()->validate([
-      
+
       'first_name'=>['required','min:3'],
 
       'last_name'=>['required','min:3'],

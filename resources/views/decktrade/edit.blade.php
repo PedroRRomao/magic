@@ -9,169 +9,174 @@
 
       <hr>
 
-      <div class="row">
-        <div class='col-6'><h1 class="has-text-white">Your Deck: {{ Auth::user()->name }} </h1>
+      <form  method="POST" action="/send/{{ $user_trade->id }}">
 
-          @foreach ($cards_user as $Cards)
+        @method('PATCH')
+        @csrf
 
-            @if ($loop->first)
-              <div class="card">
-                <div class="card-body">
-                  <div class="card-deck">
-                    <div class="card" id="card">
-                      <label class="image-checkbox">
-                          <img src="{{ URL::asset($Cards->src) }}" alt="Card image cap">
-                          <input type="checkbox" value="{{ $Cards->id }}" checked="checked" />
-                      </label>
+        <div class="row">
+          <div class='col-6'><h1 class="has-text-white">Your Deck: {{ Auth::user()->name }} </h1>
 
+            @foreach ($cards_user as $Cards)
 
-
-
-                    </div>
-
-            @elseif (($loop->iteration)%5 == 0)
-
-                    <div class="card" id="card">
-                      <a href="{{ URL::asset($Cards->src) }}" target="_blank">
-                        <img src="{{ URL::asset($Cards->src) }}" alt="Card image cap">
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-            @elseif ((($loop->iteration)-1)%5 == 0)
-
-              @if($loop->remaining < 1)
-
+              @if ($loop->first)
                 <div class="card">
                   <div class="card-body">
                     <div class="card-deck">
-                      <div class="card is-clearfix" id="card">
-                        <a href="{{ URL::asset($Cards->src) }}" target="_blank">
-                          <img src="{{ URL::asset($Cards->src) }}" alt="Card image cap">
-                        </a>
+                      <div class="card" id="card">
+                        <label class="image-checkbox">
+                            <img src="{{ URL::asset($Cards->src) }}" alt="Card image cap">
+                            <input type="checkbox" name="cards_user[]" value="{{ $Cards->id }}" checked="checked" />
+                        </label>
+
                       </div>
-                    </div>
-                  </div>
-                </div>
 
-              @else
+              @elseif (($loop->iteration)%5 == 0)
 
-                <div class="card">
-                  <div class="card-body">
-                    <div class="card-deck">
                       <div class="card" id="card">
                         <a href="{{ URL::asset($Cards->src) }}" target="_blank">
                           <img src="{{ URL::asset($Cards->src) }}" alt="Card image cap">
                         </a>
                       </div>
-              @endif
+                    </div>
+                  </div>
+                </div>
 
-            @else
+              @elseif ((($loop->iteration)-1)%5 == 0)
 
-                @if($loop->remaining <1)
+                @if($loop->remaining < 1)
 
-                      <div class="card is-clearfix" id="card">
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="card-deck">
+                        <div class="card is-clearfix" id="card">
+                          <a href="{{ URL::asset($Cards->src) }}" target="_blank">
+                            <img src="{{ URL::asset($Cards->src) }}" alt="Card image cap">
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                @else
+
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="card-deck">
+                        <div class="card" id="card">
+                          <a href="{{ URL::asset($Cards->src) }}" target="_blank">
+                            <img src="{{ URL::asset($Cards->src) }}" alt="Card image cap">
+                          </a>
+                        </div>
+                @endif
+
+              @else
+
+                  @if($loop->remaining <1)
+
+                        <div class="card is-clearfix" id="card">
+                          <a href="{{ URL::asset($Cards->src) }}" target="_blank">
+                            <img src="{{ URL::asset($Cards->src) }}" alt="Card image cap">
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                @else
+                      <div class="card" id="card">
                         <a href="{{ URL::asset($Cards->src) }}" target="_blank">
                           <img src="{{ URL::asset($Cards->src) }}" alt="Card image cap">
+                        </a>
+                      </div>
+                @endif
+
+              @endif
+
+            @endforeach
+          </div>
+
+          <div class="col-6"><h1 class="has-text-white">Traders Deck: {{ $user_trade->name }} </h1>
+
+            @foreach ($cards_trader as $CardsT)
+
+              @if ($loop->first)
+                <div class="card">
+                  <div class="card-body">
+                    <div class="card-deck">
+                      <div class="card" id="card">
+                        <label class="image-checkbox">
+                            <img src="{{ URL::asset($CardsT->src) }}" alt="Card image cap">
+                            <input type="checkbox" name="cards_trader[]" value="{{ $CardsT->id }}" checked="checked" />
+                        </label>
+                      </div>
+
+              @elseif (($loop->iteration)%5 == 0)
+
+                      <div class="card" id="card">
+                        <a href="{{ URL::asset($CardsT->src) }}" target="_blank">
+                          <img src="{{ URL::asset($CardsT->src) }}" alt="Card image cap">
                         </a>
                       </div>
                     </div>
                   </div>
                 </div>
 
-              @else
-                    <div class="card" id="card">
-                      <a href="{{ URL::asset($Cards->src) }}" target="_blank">
-                        <img src="{{ URL::asset($Cards->src) }}" alt="Card image cap">
-                      </a>
+              @elseif ((($loop->iteration)-1)%5 == 0)
+
+                @if($loop->remaining < 1)
+                  <div class="card">
+                    <div class="card-body" id="last_card">
+                      <div style="width: 40%" class="card-deck">
+                        <div class="card" id="card">
+                          <a href="{{ URL::asset($CardsT->src) }}" target="_blank">
+                            <img src="{{ URL::asset($CardsT->src) }}" alt="Card image cap">
+                          </a>
+                        </div>
+                      </div>
                     </div>
+                  </div>
+
+                @else
+
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="card-deck">
+                        <div class="card" id="card">
+                          <a href="{{ URL::asset($CardsT->src) }}" target="_blank">
+                            <img src="{{ URL::asset($CardsT->src) }}" alt="Card image cap">
+                          </a>
+                        </div>
+                @endif
+
+              @else
+
+                  @if($loop->remaining <1)
+
+                        <div class="card" id="card">
+                          <a href="{{ URL::asset($CardsT->src) }}" target="_blank">
+                            <img src="{{ URL::asset($CardsT->src) }}" alt="Card image cap">
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                @else
+                      <div class="card" id="card">
+                        <a href="{{ URL::asset($CardsT->src) }}" target="_blank">
+                          <img src="{{ URL::asset($CardsT->src) }}" alt="Card image cap">
+                        </a>
+                      </div>
+                @endif
+
               @endif
 
-            @endif
-
-          @endforeach
+            @endforeach
         </div>
+    </div>
 
-        <div class="col-6"><h1 class="has-text-white">Traders Deck: {{ $user_trade->name }} </h1>
 
-          @foreach ($cards_trader as $CardsT)
-
-            @if ($loop->first)
-              <div class="card">
-                <div class="card-body">CRM
-                  <div class="card-deck">
-                    <div class="card" id="card">
-                      <a href="{{ URL::asset($CardsT->src) }}" target="_blank">
-                        <img src="{{ URL::asset($CardsT->src) }}" alt="Card image cap">
-                      </a>
-                    </div>
-
-            @elseif (($loop->iteration)%5 == 0)
-
-                    <div class="card" id="card">
-                      <a href="{{ URL::asset($CardsT->src) }}" target="_blank">
-                        <img src="{{ URL::asset($CardsT->src) }}" alt="Card image cap">
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-            @elseif ((($loop->iteration)-1)%5 == 0)
-
-              @if($loop->remaining < 1)
-                <div class="card">
-                  <div class="card-body" id="last_card">
-                    <div style="width: 40%" class="card-deck">
-                      <div class="card" id="card">
-                        <a href="{{ URL::asset($CardsT->src) }}" target="_blank">
-                          <img src="{{ URL::asset($CardsT->src) }}" alt="Card image cap">
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-              @else
-
-                <div class="card">
-                  <div class="card-body">
-                    <div class="card-deck">
-                      <div class="card" id="card">
-                        <a href="{{ URL::asset($CardsT->src) }}" target="_blank">
-                          <img src="{{ URL::asset($CardsT->src) }}" alt="Card image cap">
-                        </a>
-                      </div>
-              @endif
-
-            @else
-
-                @if($loop->remaining <1)
-
-                      <div class="card" id="card">
-                        <a href="{{ URL::asset($CardsT->src) }}" target="_blank">
-                          <img src="{{ URL::asset($CardsT->src) }}" alt="Card image cap">
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-              @else
-                    <div class="card" id="card">
-                      <a href="{{ URL::asset($CardsT->src) }}" target="_blank">
-                        <img src="{{ URL::asset($CardsT->src) }}" alt="Card image cap">
-                      </a>
-                    </div>
-              @endif
-
-            @endif
-
-          @endforeach
-      </div>
-  </div>
 
 <script type="text/javascript">
   jQuery(function ($) {
@@ -207,12 +212,13 @@
 @section('content')
 
 
-  <form method= 'GET' action= '/decktrade/{{ Auth::user()->deck->owner_id }}/trade/{{ $user_trade->id }}'>
-    @csrf
-    <div>
-    <button type='submit' class='has-text-white button is-link'>Ask for trade</button>
-   </div>
-  </form>
+    <div class="control">
+      <button type="submit" name="button is-link">Ask for Trade</button>
+    </div>
+
+
+
+</form>
 
 
 

@@ -13,6 +13,7 @@
 
         <li><h1>{{ $user->name }} : <a href="/decks/{{ $user->deck->id }}">{{ $user->deck->Name }}</h1></a></li>
       @endif
+      
     @endforeach
     </ul>
 @endsection
