@@ -22,7 +22,7 @@
       </div>
 
     @endforeach
-    
+
     <div class="row">
       <div class="col-6">
         <button type="submit" class='button is-link' style="border-radius: 5px;" value="1">Accept</button>

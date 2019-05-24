@@ -16,7 +16,7 @@
         <style>
             html, body {
                 background: url('/img/back1.jpg');
-                background-size: fixed;
+                background-size: cover;
                 color: #FFFFFF;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 300;
