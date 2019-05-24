@@ -85,13 +85,21 @@ class DecksController extends Controller
 
       $array = array();
 
+<<<<<<< HEAD
       for($i = 0;$i<=(38);$i++)
+=======
+      for($i = 1;$i<=(38);$i++)
+>>>>>>> ff52418a2700036dd5205af2fccbf940ecae2f61
       {
           $monsters = rand(1,$cards_number - 20);
           array_push($array, $monsters);
       }
 
+<<<<<<< HEAD
       for($i = 0;$i<=(27);$i++)
+=======
+      for($i = 1;$i<=(23);$i++)
+>>>>>>> ff52418a2700036dd5205af2fccbf940ecae2f61
       {
           $mana = rand(255,275);
 
@@ -110,6 +118,10 @@ class DecksController extends Controller
       Deck::create($attributes);
 
 
+<<<<<<< HEAD
+=======
+      // redireccionar para mostrar as cartas
+>>>>>>> ff52418a2700036dd5205af2fccbf940ecae2f61
       return redirect('/decks');
 
   }
