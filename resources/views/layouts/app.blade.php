@@ -11,6 +11,7 @@
     {{-- <title>{{ config('app.name', 'Magic') }}</title> --}}
 
     <!-- Scripts -->
+    @yield('script')
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
@@ -18,7 +19,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
 
     <!-- Styles -->
-    <link href="path/to/lightbox.css" rel="stylesheet">
+    @yield('style')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style>
@@ -34,7 +35,7 @@
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="img/logo.png" width="120" height="120" alt="">
+                    <img src="/img/logo.png" width="120" height="120" alt="">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -79,7 +80,9 @@
             </div>
         </nav>
 
+
         <main class="py-4">
+          @yield('trades')
           <div id="content-box" class="box">
             @yield('content')
           </div>

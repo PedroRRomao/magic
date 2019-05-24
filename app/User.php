@@ -42,9 +42,9 @@ class User extends \TCG\Voyager\Models\User
         return $this->hasOne(Profile::class);
     }
 
-    public function decks()
+    public function deck()
     {
-      return $this->hasMany(Deck::class);
+      return $this->hasOne(Deck::class, 'owner_id', 'id');
     }
 
 }

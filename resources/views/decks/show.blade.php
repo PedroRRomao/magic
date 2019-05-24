@@ -9,12 +9,22 @@
 <div class='content'>{{ $Deck->Description}}
 
 </div>
-<form method= 'GET' action= '/decks/{{ $Deck->id }}/edit'>
+@if(Auth::user()->id == $Deck->owner_id)
+<form method= 'GET' action= '/decks/{{ $Deck->owner_id }}/edit'>
   @csrf
   <div>
   <button type='submit' class='has-text-white button is-link'>Edit Deck Name</button>
  </div>
 </form>
+@else
+  <form method= 'GET' action= '/decktrade/{{ Auth::user()->deck->owner_id }}/trade/{{ $Deck->owner_id }}'>
+    @csrf
+    <div>
+    <button type='submit' class='has-text-white button is-link'>Trade</button>
+   </div>
+  </form>
+@endif
+
 <br>
 <br>
 <div class="card">
@@ -33,7 +43,7 @@
 
                     </div>
 
-            @elseif (($loop->iteration)%5 == 0)
+            @elseif (($loop->iteration)%3 == 0)
 
                     <div class="card">
                       <a href="{{ URL::asset($Cards->src) }}" target="_blank">
@@ -44,7 +54,7 @@
                 </div>
               </div>
 
-            @elseif ((($loop->iteration)-1)%5 == 0)
+            @elseif ((($loop->iteration)-1)%3 == 0)
               <div class="card">
                 <div class="card-body">
                   <div class="card-deck">

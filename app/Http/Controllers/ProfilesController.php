@@ -64,8 +64,6 @@ class ProfilesController extends Controller
 
     $profile = Profile::findOrFail($id);
 
-
-    $profile->username = request('username');
     $profile->first_name = request('first_name');
     $profile->last_name = request('last_name');
     $profile->country = request('country');
@@ -87,8 +85,7 @@ class ProfilesController extends Controller
   public function validateProfile(){
 
     return request()->validate([
-      'username'=>['required','min:3'],
-
+      
       'first_name'=>['required','min:3'],
 
       'last_name'=>['required','min:3'],

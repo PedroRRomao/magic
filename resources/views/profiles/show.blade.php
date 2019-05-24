@@ -2,7 +2,7 @@
 
 @section('content')
 
-  <h1 class="title">{{ $profile->username }}</h1>
+  <h1 class="title">{{ Auth::user()->name }}</h1>
 
   <div class="box"><h1>This user is from: {{ $profile->city }}</h1>
 

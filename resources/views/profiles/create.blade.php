@@ -6,15 +6,6 @@
 
       @csrf
 
-      <div class="field">
-
-        <label class="label">Username</label>
-
-        <div class="control">
-          <input class="input" type="text" name="username" placeholder="User Name" required>
-        </div>
-      </div>
-
         <div class="field">
           <label class="label">First Name</label>
           <div class="control">
