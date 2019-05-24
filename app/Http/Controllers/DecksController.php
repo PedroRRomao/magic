@@ -59,6 +59,7 @@ class DecksController extends Controller
 
   public function edit(Deck $Deck)
   {
+    $Deck = Deck::findorFail($id);
 
     return view('decks.edit', compact('Deck'));
 

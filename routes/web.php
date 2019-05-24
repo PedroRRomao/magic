@@ -11,7 +11,6 @@
 |
 */
 
-
 Route::get('/', 'PagesController@home');
 
 
@@ -23,9 +22,16 @@ Route::get('/cards', 'PagesController@cards');
 
 Route::get('/decks', 'DecksController@decks');
 
+
+Route::get('/clans', 'ClansController@clans');
+
 Route::post('/decks/{deck}', 'DecksController@store');
+Route::post('/clans/{clan}', 'ClansController@store');
 
 Route::resource('decks','DecksController');
+
+Route::resource('profiles', 'ProfilesController');
+Route::resource('clans', 'ClansController');
 
 Route::get('/decktrade/{deck}/trade/{decktrade}', 'DeckTradeController@edit');
 

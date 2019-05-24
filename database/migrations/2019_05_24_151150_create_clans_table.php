@@ -16,7 +16,8 @@ class CreateClansTable extends Migration
         Schema::create('clans', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->unsignedInteger('members_number');
+            $table->text('description');
+            $table->unsignedInteger('members_number')->default(50);
             $table->unsignedInteger('victory')->default(0);
             $table->unsignedInteger('defeat')->default(0);
             $table->timestamps();
