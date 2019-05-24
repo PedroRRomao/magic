@@ -17,9 +17,9 @@
       </div>
 
         <div class="field">
-          <label class="label">Number of Members allowed</label>
+          <label class="label">Description</label>
           <div class="control">
-            <input class="input" type="text" name="members_number" placeholder="Number of members" required>
+            <input class="input" type="text" name="description" placeholder="Description" required>
           </div>
         </div>
         <div class="field">

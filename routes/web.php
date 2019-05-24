@@ -25,8 +25,10 @@ Route::get('/cards', 'PagesController@cards');
 Route::get('/decks', 'DecksController@decks');
 
 Route::get('/profiles', 'ProfilesController@profiles');
+Route::get('/clans', 'ClansController@clans');
 
 Route::post('/decks/{deck}', 'DecksController@store');
+Route::post('/clans/{clan}', 'ClansController@store');
 
 Route::resource('decks','DecksController');
 Route::resource('profiles', 'ProfilesController');

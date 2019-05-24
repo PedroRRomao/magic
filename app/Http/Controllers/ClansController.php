@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Profile;
 use App\Clan;
 use Illuminate\Http\Request;
 
@@ -9,7 +9,7 @@ class ClansController extends Controller
 {
 
     public function __construct(){
-      $this->middleware('auth');
+      // $this->middleware('auth');
     }
     /**
      * Display a listing of the resource.
@@ -18,7 +18,7 @@ class ClansController extends Controller
      */
     public function index()
     {
-      $Clans = Clan::all();
+      $clans = Clan::all();
 
       return view('clans.index', compact('clans'));
 
@@ -27,7 +27,7 @@ class ClansController extends Controller
 
     public function create()
     {
-      return view('decks.create');
+      return view('clans.create');
     }
 
     /**
@@ -60,9 +60,11 @@ class ClansController extends Controller
      */
     public function show(Clan $Clan)
     {
-      $this->authorize('view', $Clan);
+      // $this->authorize('view', $Clan);
 
-      $Profile = Profile::findMany($Clan['profiles_array']);
+      $Profile = Profile::findMany($Clan->id);
+
+      dd($Profile);
 
       return view('clans.show', compact('Clan', 'Profile'));
 
@@ -78,7 +80,7 @@ class ClansController extends Controller
     {
       $Clan = Clan::findorFail($id);
 
-      return view('clans.edit', compact('Ceck'));
+      return view('clans.edit', compact('Clan'));
 
     }
 
@@ -91,7 +93,7 @@ class ClansController extends Controller
      */
     public function update(Clan $Clan)
     {
-        $Clan->update(request(['name', 'members_mumber']));
+        $Clan->update(request(['name', 'description']));
 
         return redirect('/clans');
     }
@@ -114,7 +116,7 @@ class ClansController extends Controller
 
       return request()->validate([
         'name'=>['required', 'min:3', 'max:30'],
-        'members_number'=>'required'
+        'description'=>['required', 'max:30']
       ]);
     }
 

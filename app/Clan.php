@@ -6,9 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Clan extends Model
 {
-    protected $casts = [
-        'profiles_array' => 'array'
+    protected $fillable = [
+        'name', 'description'
     ];
+
 
     public function profile()
     {

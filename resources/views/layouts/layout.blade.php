@@ -79,7 +79,7 @@
         <ul class="nav navbar-nav">
           <li><a href='/decks'>Decks</a></li>
           <li><a href="/profiles">Profile</a></li>
-          <li><a href="#">Clans</a></li>
+          <li><a href="/clans">Clans</a></li>
           <li><a href="#">Play</a></li>
           <li><a href="#">Rules</a></li>
           <li><a href="/cards">All cards</a></li>
