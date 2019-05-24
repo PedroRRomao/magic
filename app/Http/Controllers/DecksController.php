@@ -36,7 +36,6 @@ class DecksController extends Controller
 
   public function show(Deck $Deck)
   {
-    $this->authorize('view', $Deck);
 
     $Card = Card::findMany($Deck['cards_array']);
 
@@ -86,16 +85,21 @@ class DecksController extends Controller
 
       $array = array();
 
-      for($i = 1;$i<=(38);$i++)
+      for($i = 0;$i<=(38);$i++)
       {
           $monsters = rand(1,$cards_number - 20);
           array_push($array, $monsters);
       }
 
-      for($i = 1;$i<=(23);$i++)
+      for($i = 0;$i<=(27);$i++)
       {
           $mana = rand(255,275);
-          array_push($array, $mana);
+
+          if(count($array) < 55)
+          {
+            array_push($array, $mana);
+          }
+
       }
 
 
@@ -106,7 +110,6 @@ class DecksController extends Controller
       Deck::create($attributes);
 
 
-      // redireccionar para mostrar as cartas
       return redirect('/decks');
 
   }

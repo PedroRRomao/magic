@@ -16,7 +16,7 @@
         <style>
             html, body {
                 background: url('/img/back1.jpg');
-                background-size: cover;
+                background-size: fixed;
                 color: #FFFFFF;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 300;
@@ -77,7 +77,8 @@
         </div>
 
         <ul class="nav navbar-nav">
-          <li><a href='/decks'>Decks</a></li>
+          <li><a href='/decks'>Your Deck</a></li>
+          <li><a href='/decktrade'>All Decks</a></li>
           <li><a href="/profiles">Profile</a></li>
           <li><a href="#">Clans</a></li>
           <li><a href="#">Play</a></li>

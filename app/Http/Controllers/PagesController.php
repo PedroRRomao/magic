@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Card;
+use App\Notifications\TradeNotification;
 
 class PagesController extends Controller
 {
@@ -15,8 +16,6 @@ class PagesController extends Controller
 
       return view('welcome');
     }
-
-
 
     public function rules()
     {

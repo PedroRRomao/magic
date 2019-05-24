@@ -8,7 +8,7 @@
 
       <li>
         <a href="/profiles/{{ $profile->id }}">
-          {{ $profile->username }}
+          {{ Auth::user()->name }}
         </a>
 
       </li>
