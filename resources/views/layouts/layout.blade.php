@@ -80,7 +80,7 @@
           <li><a href='/decks'>Your Deck</a></li>
           <li><a href='/decktrade'>All Decks</a></li>
           <li><a href="/profiles">Profile</a></li>
-          <li><a href="#">Clans</a></li>
+          <li><a href="/clans">Clans</a></li>
           <li><a href="#">Play</a></li>
           <li><a href="#">Rules</a></li>
           <li><a href="/cards">All cards</a></li>
