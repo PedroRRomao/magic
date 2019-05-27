@@ -2,8 +2,8 @@
 
 @section('content')
 
-  <div class="container has-text-centered" style="border: 1px solid red">
-      <div class="center-logo" style="border: 1px solid red">
+  <div class="container has-text-centered">
+      <div class="center-logo">
               <figure class="image">
                   <img src="/img/logo.png">
               </figure>
