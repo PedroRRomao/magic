@@ -127,7 +127,7 @@ class DeckTradeController extends Controller
         ];
 
         $user->notify(new TradeNotification($details, $card_user, $card_trader));
-
+        
     }
 
     public function trade(Request $request, User $user){

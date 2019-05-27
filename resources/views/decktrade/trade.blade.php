@@ -7,7 +7,7 @@
     {{-- <h1>{{ $data }}</h1> --}}
     @foreach ( $data as $notification)
 
-        <h1>DO you want to trade this cards?</h1>
+        <h1>Do you want to trade this cards?</h1>
         <div class="row">
 
 
