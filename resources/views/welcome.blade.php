@@ -2,8 +2,8 @@
 
 @section('content')
 
-  <div class="container has-text-centered">
-      <div class="center-logo">
+  <div class="container has-text-centered" style="border: 1px solid red">
+      <div class="center-logo" style="border: 1px solid red">
               <figure class="image">
                   <img src="/img/logo.png">
               </figure>
@@ -17,6 +17,10 @@
     margin-right: auto;
     margin-top: 10%;
     width: 50%;
+    }
+
+    .container {
+      width: 70%;
     }
   </style>
 

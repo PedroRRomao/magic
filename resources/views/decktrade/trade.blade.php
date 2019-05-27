@@ -6,13 +6,15 @@
     @php $data = Auth::user()->unreadNotifications; @endphp
     {{-- <h1>{{ $data }}</h1> --}}
     @foreach ( $data as $notification)
-
+        <h1> {{ $data }}</h1>
+        <h1> {{ $notification }}</h1>
         <h1>Do you want to trade this cards?</h1>
         <div class="row">
 
 
         @php $trader = $notification->first()->data['image_trade']; @endphp
         @php $user_c = $notification->first()->data['image_user']; @endphp
+        {{ dd($trader) }}
         <div class="col-6">
           <img src="/{{ $cards->get($trader)->src }}" alt="image">
         </div>
