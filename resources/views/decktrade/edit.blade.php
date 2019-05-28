@@ -1,4 +1,4 @@
-@extends('layouts.app')
+unchecked@extends('layouts.app')
 
 @section('style')
   <link href="{{ asset('css/cards.css') }}" rel="stylesheet">
@@ -34,9 +34,10 @@
               @elseif (($loop->iteration)%5 == 0)
 
                       <div class="card" id="card">
-                        <a href="{{ URL::asset($Cards->src) }}" target="_blank">
-                          <img src="{{ URL::asset($Cards->src) }}" alt="Card image cap">
-                        </a>
+                        <label class="image-checkbox">
+                            <img src="{{ URL::asset($Cards->src) }}" alt="Card image cap">
+                            <input type="checkbox" name="cards_user[]" value="{{ $Cards->id }}" checked="unchecked" />
+                        </label>
                       </div>
                     </div>
                   </div>
@@ -50,9 +51,10 @@
                     <div class="card-body">
                       <div class="card-deck">
                         <div class="card is-clearfix" id="card">
-                          <a href="{{ URL::asset($Cards->src) }}" target="_blank">
-                            <img src="{{ URL::asset($Cards->src) }}" alt="Card image cap">
-                          </a>
+                          <label class="image-checkbox">
+                              <img src="{{ URL::asset($Cards->src) }}" alt="Card image cap">
+                              <input type="checkbox" name="cards_user[]" value="{{ $Cards->id }}" checked="unchecked" />
+                          </label>
                         </div>
                       </div>
                     </div>
@@ -64,9 +66,10 @@
                     <div class="card-body">
                       <div class="card-deck">
                         <div class="card" id="card">
-                          <a href="{{ URL::asset($Cards->src) }}" target="_blank">
-                            <img src="{{ URL::asset($Cards->src) }}" alt="Card image cap">
-                          </a>
+                          <label class="image-checkbox">
+                              <img src="{{ URL::asset($Cards->src) }}" alt="Card image cap">
+                              <input type="checkbox" name="cards_user[]" value="{{ $Cards->id }}" checked="unchecked" />
+                          </label>
                         </div>
                 @endif
 
@@ -75,9 +78,10 @@
                   @if($loop->remaining <1)
 
                         <div class="card is-clearfix" id="card">
-                          <a href="{{ URL::asset($Cards->src) }}" target="_blank">
-                            <img src="{{ URL::asset($Cards->src) }}" alt="Card image cap">
-                          </a>
+                          <label class="image-checkbox">
+                              <img src="{{ URL::asset($Cards->src) }}" alt="Card image cap">
+                              <input type="checkbox" name="cards_user[]" value="{{ $Cards->id }}" checked="unchecked" />
+                          </label>
                         </div>
                       </div>
                     </div>
@@ -85,9 +89,10 @@
 
                 @else
                       <div class="card" id="card">
-                        <a href="{{ URL::asset($Cards->src) }}" target="_blank">
-                          <img src="{{ URL::asset($Cards->src) }}" alt="Card image cap">
-                        </a>
+                        <label class="image-checkbox">
+                            <img src="{{ URL::asset($Cards->src) }}" alt="Card image cap">
+                            <input type="checkbox" name="cards_user[]" value="{{ $Cards->id }}" checked="unchecked" />
+                        </label>
                       </div>
                 @endif
 
@@ -107,16 +112,17 @@
                       <div class="card" id="card">
                         <label class="image-checkbox">
                             <img src="{{ URL::asset($CardsT->src) }}" alt="Card image cap">
-                            <input type="checkbox" name="cards_trader[]" value="{{ $CardsT->id }}" checked="checked" />
+                            <input type="checkbox" name="cards_trader[]" value="{{ $CardsT->id }}" checked="unchecked" />
                         </label>
                       </div>
 
               @elseif (($loop->iteration)%5 == 0)
 
                       <div class="card" id="card">
-                        <a href="{{ URL::asset($CardsT->src) }}" target="_blank">
-                          <img src="{{ URL::asset($CardsT->src) }}" alt="Card image cap">
-                        </a>
+                        <label class="image-checkbox">
+                            <img src="{{ URL::asset($CardsT->src) }}" alt="Card image cap">
+                            <input type="checkbox" name="cards_trader[]" value="{{ $CardsT->id }}" checked="unchecked" />
+                        </label>
                       </div>
                     </div>
                   </div>
@@ -129,9 +135,10 @@
                     <div class="card-body" id="last_card">
                       <div style="width: 40%" class="card-deck">
                         <div class="card" id="card">
-                          <a href="{{ URL::asset($CardsT->src) }}" target="_blank">
-                            <img src="{{ URL::asset($CardsT->src) }}" alt="Card image cap">
-                          </a>
+                          <label class="image-checkbox">
+                              <img src="{{ URL::asset($CardsT->src) }}" alt="Card image cap">
+                              <input type="checkbox" name="cards_trader[]" value="{{ $CardsT->id }}" checked="unchecked" />
+                          </label>
                         </div>
                       </div>
                     </div>
@@ -143,9 +150,10 @@
                     <div class="card-body">
                       <div class="card-deck">
                         <div class="card" id="card">
-                          <a href="{{ URL::asset($CardsT->src) }}" target="_blank">
-                            <img src="{{ URL::asset($CardsT->src) }}" alt="Card image cap">
-                          </a>
+                          <label class="image-checkbox">
+                              <img src="{{ URL::asset($CardsT->src) }}" alt="Card image cap">
+                              <input type="checkbox" name="cards_trader[]" value="{{ $CardsT->id }}" checked="unchecked" />
+                          </label>
                         </div>
                 @endif
 
@@ -164,9 +172,10 @@
 
                 @else
                       <div class="card" id="card">
-                        <a href="{{ URL::asset($CardsT->src) }}" target="_blank">
-                          <img src="{{ URL::asset($CardsT->src) }}" alt="Card image cap">
-                        </a>
+                        <label class="image-checkbox">
+                            <img src="{{ URL::asset($CardsT->src) }}" alt="Card image cap">
+                            <input type="checkbox" name="cards_trader[]" value="{{ $CardsT->id }}" checked="unchecked" />
+                        </label>
                       </div>
                 @endif
 
