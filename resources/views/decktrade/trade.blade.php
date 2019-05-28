@@ -32,12 +32,6 @@
         <button type="submit" class='button is-link rounded offset-md-4' style="border-radius: 5px;" value="2">Decline</button>
       </div>
     </div>
-        <div class="col-md-6" id="app">
-            <review-form
-            :user="{{Auth::user()}}"
-            url="{{route('decktrade.store')}}">
-            </review-form>
-        </div>
 </form>
 
 @endsection
