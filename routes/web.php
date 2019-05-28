@@ -34,6 +34,8 @@ Route::resource('clans', 'ClansController');
 
 Route::get('/decktrade/{deck}/trade/{decktrade}', 'DeckTradeController@update');
 
+Route::post('decktrade', 'DeckTradeController@store');
+
 Route::resource('decktrade','DeckTradeController');
 
 Route::resource('profiles', 'ProfilesController');
@@ -43,6 +45,8 @@ Route::resource('profiles', 'ProfilesController');
 Route::patch('/send/{user}', 'DeckTradeController@trade');
 
 Route::get('/decktrade/trade/{user}', 'DeckTradeController@edit');
+
+
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

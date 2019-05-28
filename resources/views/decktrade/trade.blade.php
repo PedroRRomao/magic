@@ -2,8 +2,8 @@
 
 @section('content')
 
-    <form  method="GET" action="/">
-
+    <form  method="POST" action="{{ action('DeckTradeController@store') }}">
+    {{csrf_field()}}
 
 
     @php $noti = Auth::user()->notifications; @endphp
@@ -25,11 +25,12 @@
 
 
     <div class="row">
+
       <div class="col-6">
-        <button type="submit" class='button is-link' style="border-radius: 5px;" value="1">Accept</button>
+        <button type="submit" name="submit" class='button is-link' style="border-radius: 5px;" value="accept:{{ $cards->find($trader)->id }}:{{ $cards->find($user_c)->id }}">Accept</button>
       </div>
       <div class="col-6">
-        <button type="submit" class='button is-link rounded offset-md-4' style="border-radius: 5px;" value="2">Decline</button>
+        <button type="submit" name="submit" class='button is-link rounded offset-md-4' style="border-radius: 5px;" value="decline">Decline</button>
       </div>
     </div>
 </form>

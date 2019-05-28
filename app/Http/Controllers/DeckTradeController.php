@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\Request;
+
 use App\Deck;
 use App\User;
 use App\Card;
+use Illuminate\Support\Facades\Auth;
 use Notification;
 use App\Notifications\TradeNotification;
 
@@ -49,7 +51,39 @@ class DeckTradeController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
+        $user = User::find(Auth::id());
+
+        $splitRequest = explode(':', $request->submit);
+
+        $card_trader = Card::find($splitRequest[1]);
+
+
+        $card_user = Card::find($splitRequest[2]);
+
+        if($splitRequest[0] == "accept")
+        {
+          $card_array = $user->deck->cards_array;
+          $array_copy = array();
+
+          foreach($card_array as $key => $value)
+          {
+             if($value == $card_trader->id){
+
+               $array_copy[$key] = $card_user->id; // for arrays where key equals offset
+               $trade_array = array_replace($card_array, $array_copy);
+
+             }
+
+          }
+
+          $user->deck->cards_array = $trade_array;
+          $user->deck->save();
+          return view('welcome');
+        }
+        else if($splitRequest[0] == "decline")
+        {
+          return view('welcome');
+        }
     }
 
     /**
