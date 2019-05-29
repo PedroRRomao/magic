@@ -1,4 +1,4 @@
-unchecked@extends('layouts.app')
+@extends('layouts.app')
 
 @section('style')
   <link href="{{ asset('css/cards.css') }}" rel="stylesheet">
@@ -26,7 +26,7 @@ unchecked@extends('layouts.app')
                       <div class="card" id="card">
                         <label class="image-checkbox">
                             <img src="{{ URL::asset($Cards->src) }}" alt="Card image cap">
-                            <input type="checkbox" name="cards_user[]" value="{{ $Cards->id }}" checked="checked" />
+                            <input type="checkbox" name="cards_user[]" value="{{ $Cards->id }}"/>
                         </label>
 
                       </div>
@@ -36,7 +36,7 @@ unchecked@extends('layouts.app')
                       <div class="card" id="card">
                         <label class="image-checkbox">
                             <img src="{{ URL::asset($Cards->src) }}" alt="Card image cap">
-                            <input type="checkbox" name="cards_user[]" value="{{ $Cards->id }}" checked="unchecked" />
+                            <input type="checkbox" name="cards_user[]" value="{{ $Cards->id }}"/>
                         </label>
                       </div>
                     </div>
@@ -53,7 +53,7 @@ unchecked@extends('layouts.app')
                         <div class="card is-clearfix" id="card">
                           <label class="image-checkbox">
                               <img src="{{ URL::asset($Cards->src) }}" alt="Card image cap">
-                              <input type="checkbox" name="cards_user[]" value="{{ $Cards->id }}" checked="unchecked" />
+                              <input type="checkbox" name="cards_user[]" value="{{ $Cards->id }}"/>
                           </label>
                         </div>
                       </div>
@@ -68,7 +68,7 @@ unchecked@extends('layouts.app')
                         <div class="card" id="card">
                           <label class="image-checkbox">
                               <img src="{{ URL::asset($Cards->src) }}" alt="Card image cap">
-                              <input type="checkbox" name="cards_user[]" value="{{ $Cards->id }}" checked="unchecked" />
+                              <input type="checkbox" name="cards_user[]" value="{{ $Cards->id }}"/>
                           </label>
                         </div>
                 @endif
@@ -80,7 +80,7 @@ unchecked@extends('layouts.app')
                         <div class="card is-clearfix" id="card">
                           <label class="image-checkbox">
                               <img src="{{ URL::asset($Cards->src) }}" alt="Card image cap">
-                              <input type="checkbox" name="cards_user[]" value="{{ $Cards->id }}" checked="unchecked" />
+                              <input type="checkbox" name="cards_user[]" value="{{ $Cards->id }}"/>
                           </label>
                         </div>
                       </div>
@@ -91,7 +91,7 @@ unchecked@extends('layouts.app')
                       <div class="card" id="card">
                         <label class="image-checkbox">
                             <img src="{{ URL::asset($Cards->src) }}" alt="Card image cap">
-                            <input type="checkbox" name="cards_user[]" value="{{ $Cards->id }}" checked="unchecked" />
+                            <input type="checkbox" name="cards_user[]" value="{{ $Cards->id }}"/>
                         </label>
                       </div>
                 @endif
@@ -112,7 +112,7 @@ unchecked@extends('layouts.app')
                       <div class="card" id="card">
                         <label class="image-checkbox">
                             <img src="{{ URL::asset($CardsT->src) }}" alt="Card image cap">
-                            <input type="checkbox" name="cards_trader[]" value="{{ $CardsT->id }}" checked="unchecked" />
+                            <input type="checkbox" name="cards_trader[]" value="{{ $CardsT->id }}"/>
                         </label>
                       </div>
 
@@ -121,7 +121,7 @@ unchecked@extends('layouts.app')
                       <div class="card" id="card">
                         <label class="image-checkbox">
                             <img src="{{ URL::asset($CardsT->src) }}" alt="Card image cap">
-                            <input type="checkbox" name="cards_trader[]" value="{{ $CardsT->id }}" checked="unchecked" />
+                            <input type="checkbox" name="cards_trader[]" value="{{ $CardsT->id }}"/>
                         </label>
                       </div>
                     </div>
@@ -137,7 +137,7 @@ unchecked@extends('layouts.app')
                         <div class="card" id="card">
                           <label class="image-checkbox">
                               <img src="{{ URL::asset($CardsT->src) }}" alt="Card image cap">
-                              <input type="checkbox" name="cards_trader[]" value="{{ $CardsT->id }}" checked="unchecked" />
+                              <input type="checkbox" name="cards_trader[]" value="{{ $CardsT->id }}"/>
                           </label>
                         </div>
                       </div>
@@ -152,7 +152,7 @@ unchecked@extends('layouts.app')
                         <div class="card" id="card">
                           <label class="image-checkbox">
                               <img src="{{ URL::asset($CardsT->src) }}" alt="Card image cap">
-                              <input type="checkbox" name="cards_trader[]" value="{{ $CardsT->id }}" checked="unchecked" />
+                              <input type="checkbox" name="cards_trader[]" value="{{ $CardsT->id }}"/>
                           </label>
                         </div>
                 @endif
@@ -162,9 +162,10 @@ unchecked@extends('layouts.app')
                   @if($loop->remaining <1)
 
                         <div class="card" id="card">
-                          <a href="{{ URL::asset($CardsT->src) }}" target="_blank">
-                            <img src="{{ URL::asset($CardsT->src) }}" alt="Card image cap">
-                          </a>
+                          <label class="image-checkbox">
+                              <img src="{{ URL::asset($CardsT->src) }}" alt="Card image cap">
+                              <input type="checkbox" name="cards_trader[]" value="{{ $CardsT->id }}"/>
+                          </label>
                         </div>
                       </div>
                     </div>
@@ -174,7 +175,7 @@ unchecked@extends('layouts.app')
                       <div class="card" id="card">
                         <label class="image-checkbox">
                             <img src="{{ URL::asset($CardsT->src) }}" alt="Card image cap">
-                            <input type="checkbox" name="cards_trader[]" value="{{ $CardsT->id }}" checked="unchecked" />
+                            <input type="checkbox" name="cards_trader[]" value="{{ $CardsT->id }}"/>
                         </label>
                       </div>
                 @endif

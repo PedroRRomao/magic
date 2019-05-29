@@ -10,6 +10,7 @@ use App\Card;
 use Illuminate\Support\Facades\Auth;
 use Notification;
 use App\Notifications\TradeNotification;
+use App\Notifications\OfferNotification;
 
 class DeckTradeController extends Controller
 {
@@ -57,28 +58,51 @@ class DeckTradeController extends Controller
 
         $card_trader = Card::find($splitRequest[1]);
 
+        $user_trading = User::find($user->notifications->first()->data['order_id']);
 
         $card_user = Card::find($splitRequest[2]);
 
         if($splitRequest[0] == "accept")
         {
-          $card_array = $user->deck->cards_array;
-          $array_copy = array();
+          $card_array_current = $user->deck->cards_array;
+          $array_copy_current = array();
 
-          foreach($card_array as $key => $value)
+          foreach($card_array_current as $key => $value)
           {
              if($value == $card_trader->id){
 
-               $array_copy[$key] = $card_user->id; // for arrays where key equals offset
-               $trade_array = array_replace($card_array, $array_copy);
+               $array_copy_current[$key] = $card_user->id; // for arrays where key equals offset
+               $trade_array = array_replace($card_array_current, $array_copy_current);
 
              }
 
           }
 
+          $card_array_trader = $user_trading->deck->cards_array;
+          $array_copy_trader = array();
+
+          foreach($card_array_trader as $key => $value)
+          {
+             if($value == $card_user->id){
+
+               $array_copy_trader[$key] = $card_trader->id; // for arrays where key equals offset
+               $trader_array = array_replace($card_array_trader, $array_copy_trader);
+
+             }
+
+          }
+
+          $this->offerNotification($user_trading);
+          
           $user->deck->cards_array = $trade_array;
           $user->deck->save();
-          return view('welcome');
+
+          $user_trading->deck->cards_array = $trader_array;
+          $user_trading->deck->save();
+
+
+
+          return view('welcome');$this->sendNotification($user, Card::find($user_card), Card::find($trade_card));
         }
         else if($splitRequest[0] == "decline")
         {
@@ -140,7 +164,7 @@ class DeckTradeController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Response$this->sendNotification($user, Card::find($user_card), Card::find($trade_card));
      */
     public function destroy($id)
     {
@@ -157,12 +181,20 @@ class DeckTradeController extends Controller
             'image_trader' => $card_trader,
             'image_user' => $card_user,
             'actionURL' => $url,
-            'order_id' => $user->id,
+            'order_id' => Auth::user()->id,
         ];
 
         $user->notify(new TradeNotification($details, $card_user, $card_trader));
 
     }
+
+    public function offerNotification(User $user)
+    {
+
+        $user->notify(new OfferNotification());
+
+    }
+
 
     public function trade(Request $request, User $user){
 

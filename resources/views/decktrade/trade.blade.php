@@ -14,6 +14,7 @@
 
       @php $trader = $noti->first()->data['image_trade']; @endphp
       @php $user_c = $noti->first()->data['image_user']; @endphp
+      @php $user_trader = $noti->first()->data['order_id']; @endphp
       <div class="col-6">
         <img src="/{{ $cards->find($trader)->src }}" alt="image">
       </div>
