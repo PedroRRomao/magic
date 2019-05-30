@@ -6,6 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
+use App;
 
 class TradeNotification extends Notification
 {
@@ -48,13 +49,14 @@ class TradeNotification extends Notification
     {
       $image_trade = $this->details['image_trader']->src;
       $image_user = $this->details['image_user']->src;
+      $url = App::make('url')->to('/');
 
         return (new MailMessage)
                     ->line($this->details['greeting'])
                     ->line('Trade this card:')
-                    ->line("http://127.0.0.1:8000/".$image_trade)
+                    ->line($url.'/'.$image_trade)
                     ->line('With this card:')
-                    ->line("http://127.0.0.1:8000/".$image_user)
+                    ->line($url.'/'.$image_user)
                     ->action('Join Trade', $this->details['actionURL'])
                     ->line('Thank you for using our application!');
     }
