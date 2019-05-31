@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Profile;
 use App\Clan;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class ClansController extends Controller
@@ -36,17 +37,22 @@ class ClansController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
     public function store()
     {
       $attributes = $this->validateClan();
 
 
+      $user = Auth::user();
+
+      // $user->profile->clan_id =
 
 
+      $clan = Clan::create($attributes);
 
-      Clan::create($attributes);
+      $user->profile->clan_id = $clan->id;
 
-
+      $user->profile->save();
 
       return redirect('/clans');
 
@@ -62,9 +68,9 @@ class ClansController extends Controller
     {
       // $this->authorize('view', $Clan);
 
-      $Profile = Profile::findMany();
+      // $Profile = Profile::where('clan_id', $Clan->id);
 
-      dd($Profile);
+      // dd($Profile);
 
       return view('clans.show', compact('Clan', 'Profile'));
 
@@ -78,8 +84,8 @@ class ClansController extends Controller
      */
     public function edit(Clan $Clan)
     {
-      $Clan = Clan::findorFail($id);
 
+      $this->authorize('view', $Clan);
       return view('clans.edit', compact('Clan'));
 
     }
@@ -91,11 +97,16 @@ class ClansController extends Controller
      * @param  \App\Clan  $clan
      * @return \Illuminate\Http\Response
      */
-    public function update(Clan $Clan)
+    public function update($id)
     {
-        $Clan->update(request(['name', 'description']));
+        $Clan = Clan::find($id);
 
-        return redirect('/clans');
+        $user = Auth::user();
+        $Profile = $user->profile;
+        $Profile->clan_id = $id;
+        $Profile->save();
+
+        return view('clans.show', compact('Clan'));
     }
 
     /**
@@ -106,9 +117,13 @@ class ClansController extends Controller
      */
     public function destroy(Clan $Clan)
     {
-      $Card->delete();
 
-      return view('clans.delete');
+      $user = Auth::user();
+      $profile = $user->profile;
+      $profile->clan_id = null;
+      $profile->save();
+
+      return view('clans.show');
 
     }
 

@@ -10,18 +10,19 @@
     <br>
     <h1>Clans</h1>
 
-    @if(count($clans) == 0)
+
       <form method= 'GET' action= 'clans/create'>
         @csrf
       <div>
         <button type="submit" class='button is-link' style="border-radius: 5px;">Create a Clan</button>
       </div>
-
-    @else
+      </form>
+      <br>
+      <br>
       <ul>
         @foreach($clans as $Clan)
           <li>
-            <p>  {{ $Clan->name }} </p>
+            <p class= 'label' >  {{ $Clan->name }} </p>
             <a href="/clans/{{ $Clan->id }}">
               Join this Clan
             </a>
@@ -29,7 +30,7 @@
         @endforeach
       </ul>
 
-    @endif
+
   </div>
 
 
