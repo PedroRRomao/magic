@@ -13,7 +13,7 @@
   <style media="screen">
   .center-logo {
     display: block;
-    margin-left: 22%;
+    margin-left: 24%;
     margin-right: auto;
     margin-top: 10%;
     width: 50%;
