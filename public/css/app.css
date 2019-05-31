@@ -1,5 +1,41 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
 
+.c-check__view {
+  box-shadow: 0px 15px 15px -8px rgba(238, 74, 69, 0.4);
+  display: block;
+  cursor: pointer;
+  width: 30%;
+  height: 10%;
+  background-color: #ee4a45;
+  border-radius: 25px;
+  position: relative;
+  transition: all 400ms;
+  margin-left: 35%;
+  margin-top: 5%;
+}
+
+.c-check input {
+  display: none;
+}
+
+.c-check input:active ~ .c-check__view {
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+}
+
+.c-check input:checked ~ .c-check__view {
+  background-color: #75e681;
+  box-shadow: 0px 15px 15px -8px rgba(117, 230, 129, 0.4);
+}
+
+.c-check input:checked ~ .c-check__view:before {
+  width: 0;
+  border-left-width: 5px;
+  border-right-width: 5px;
+  border-radius: 10px;
+  left: 58px;
+}
+
 /*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
  * Copyright 2011-2019 The Bootstrap Authors

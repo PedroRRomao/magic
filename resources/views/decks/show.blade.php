@@ -2,6 +2,10 @@
 
 @section('title', 'Decks')
 
+@section('style')
+  <link href="{{ asset('css/cards.css') }}" rel="stylesheet">
+
+@stop
 
 @section('content')
 

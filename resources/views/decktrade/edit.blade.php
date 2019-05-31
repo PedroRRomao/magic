@@ -5,6 +5,9 @@
 
 @stop
 
+@section('scrypt')
+<script src="{{ asset('js/cards.js') }}" defer></script>
+@stop
 @section('trades')
 
       <hr>
@@ -24,9 +27,10 @@
                   <div class="card-body">
                     <div class="card-deck">
                       <div class="card" id="card">
-                        <label class="image-checkbox">
-                            <img src="{{ URL::asset($Cards->src) }}" alt="Card image cap">
-                            <input type="checkbox" name="cards_user[]" value="{{ $Cards->id }}"/>
+                        <label class="c-check">
+                          <img src="{{ URL::asset($Cards->src) }}" alt="Card image cap">
+                          <input type="checkbox" name="cards_user[]" value="{{ $Cards->id }}"/>
+                          <span class="c-check__view"></span>
                         </label>
 
                       </div>
@@ -34,9 +38,10 @@
               @elseif (($loop->iteration)%5 == 0)
 
                       <div class="card" id="card">
-                        <label class="image-checkbox">
-                            <img src="{{ URL::asset($Cards->src) }}" alt="Card image cap">
-                            <input type="checkbox" name="cards_user[]" value="{{ $Cards->id }}"/>
+                        <label class="c-check">
+                          <img src="{{ URL::asset($Cards->src) }}" alt="Card image cap">
+                          <input type="checkbox" name="cards_user[]" value="{{ $Cards->id }}"/>
+                          <span class="c-check__view"></span>
                         </label>
                       </div>
                     </div>
@@ -51,9 +56,10 @@
                     <div class="card-body">
                       <div class="card-deck">
                         <div class="card is-clearfix" id="card">
-                          <label class="image-checkbox">
-                              <img src="{{ URL::asset($Cards->src) }}" alt="Card image cap">
-                              <input type="checkbox" name="cards_user[]" value="{{ $Cards->id }}"/>
+                          <label class="c-check">
+                            <img src="{{ URL::asset($Cards->src) }}" alt="Card image cap">
+                            <input type="checkbox" name="cards_user[]" value="{{ $Cards->id }}"/>
+                            <span class="c-check__view"></span>
                           </label>
                         </div>
                       </div>
@@ -66,9 +72,10 @@
                     <div class="card-body">
                       <div class="card-deck">
                         <div class="card" id="card">
-                          <label class="image-checkbox">
-                              <img src="{{ URL::asset($Cards->src) }}" alt="Card image cap">
-                              <input type="checkbox" name="cards_user[]" value="{{ $Cards->id }}"/>
+                          <label class="c-check">
+                            <img src="{{ URL::asset($Cards->src) }}" alt="Card image cap">
+                            <input type="checkbox" name="cards_user[]" value="{{ $Cards->id }}"/>
+                            <span class="c-check__view"></span>
                           </label>
                         </div>
                 @endif
@@ -78,9 +85,10 @@
                   @if($loop->remaining <1)
 
                         <div class="card is-clearfix" id="card">
-                          <label class="image-checkbox">
-                              <img src="{{ URL::asset($Cards->src) }}" alt="Card image cap">
-                              <input type="checkbox" name="cards_user[]" value="{{ $Cards->id }}"/>
+                          <label class="c-check">
+                            <img src="{{ URL::asset($Cards->src) }}" alt="Card image cap">
+                            <input type="checkbox" name="cards_user[]" value="{{ $Cards->id }}"/>
+                            <span class="c-check__view"></span>
                           </label>
                         </div>
                       </div>
@@ -89,9 +97,10 @@
 
                 @else
                       <div class="card" id="card">
-                        <label class="image-checkbox">
-                            <img src="{{ URL::asset($Cards->src) }}" alt="Card image cap">
-                            <input type="checkbox" name="cards_user[]" value="{{ $Cards->id }}"/>
+                        <label class="c-check">
+                          <img src="{{ URL::asset($Cards->src) }}" alt="Card image cap">
+                          <input type="checkbox" name="cards_user[]" value="{{ $Cards->id }}"/>
+                          <span class="c-check__view"></span>
                         </label>
                       </div>
                 @endif
@@ -110,18 +119,20 @@
                   <div class="card-body">
                     <div class="card-deck">
                       <div class="card" id="card">
-                        <label class="image-checkbox">
-                            <img src="{{ URL::asset($CardsT->src) }}" alt="Card image cap">
-                            <input type="checkbox" name="cards_trader[]" value="{{ $CardsT->id }}"/>
+                        <label class="c-check">
+                          <img src="{{ URL::asset($CardsT->src) }}" alt="Card image cap">
+                          <input type="checkbox" name="cards_trader[]" value="{{ $CardsT->id }}"/>
+                          <span class="c-check__view"></span>
                         </label>
                       </div>
 
               @elseif (($loop->iteration)%5 == 0)
 
                       <div class="card" id="card">
-                        <label class="image-checkbox">
-                            <img src="{{ URL::asset($CardsT->src) }}" alt="Card image cap">
-                            <input type="checkbox" name="cards_trader[]" value="{{ $CardsT->id }}"/>
+                        <label class="c-check">
+                          <img src="{{ URL::asset($CardsT->src) }}" alt="Card image cap">
+                          <input type="checkbox" name="cards_trader[]" value="{{ $CardsT->id }}"/>
+                          <span class="c-check__view"></span>
                         </label>
                       </div>
                     </div>
@@ -135,9 +146,10 @@
                     <div class="card-body" id="last_card">
                       <div style="width: 40%" class="card-deck">
                         <div class="card" id="card">
-                          <label class="image-checkbox">
-                              <img src="{{ URL::asset($CardsT->src) }}" alt="Card image cap">
-                              <input type="checkbox" name="cards_trader[]" value="{{ $CardsT->id }}"/>
+                          <label class="c-check">
+                            <img src="{{ URL::asset($CardsT->src) }}" alt="Card image cap">
+                            <input type="checkbox" name="cards_trader[]" value="{{ $CardsT->id }}"/>
+                            <span class="c-check__view"></span>
                           </label>
                         </div>
                       </div>
@@ -150,9 +162,10 @@
                     <div class="card-body">
                       <div class="card-deck">
                         <div class="card" id="card">
-                          <label class="image-checkbox">
-                              <img src="{{ URL::asset($CardsT->src) }}" alt="Card image cap">
-                              <input type="checkbox" name="cards_trader[]" value="{{ $CardsT->id }}"/>
+                          <label class="c-check">
+                            <img src="{{ URL::asset($CardsT->src) }}" alt="Card image cap">
+                            <input type="checkbox" name="cards_trader[]" value="{{ $CardsT->id }}"/>
+                            <span class="c-check__view"></span>
                           </label>
                         </div>
                 @endif
@@ -162,9 +175,10 @@
                   @if($loop->remaining <1)
 
                         <div class="card" id="card">
-                          <label class="image-checkbox">
-                              <img src="{{ URL::asset($CardsT->src) }}" alt="Card image cap">
-                              <input type="checkbox" name="cards_trader[]" value="{{ $CardsT->id }}"/>
+                          <label class="c-check">
+                            <img src="{{ URL::asset($CardsT->src) }}" alt="Card image cap">
+                            <input type="checkbox" name="cards_trader[]" value="{{ $CardsT->id }}"/>
+                            <span class="c-check__view"></span>
                           </label>
                         </div>
                       </div>
@@ -173,9 +187,10 @@
 
                 @else
                       <div class="card" id="card">
-                        <label class="image-checkbox">
-                            <img src="{{ URL::asset($CardsT->src) }}" alt="Card image cap">
-                            <input type="checkbox" name="cards_trader[]" value="{{ $CardsT->id }}"/>
+                        <label class="c-check">
+                          <img src="{{ URL::asset($CardsT->src) }}" alt="Card image cap">
+                          <input type="checkbox" name="cards_trader[]" value="{{ $CardsT->id }}"/>
+                          <span class="c-check__view"></span>
                         </label>
                       </div>
                 @endif
@@ -187,43 +202,13 @@
     </div>
 
 
-
-<script type="text/javascript">
-  jQuery(function ($) {
-      // init the state from the input
-      $(".image-checkbox").each(function () {
-          if ($(this).find('input[type="checkbox"]').first().attr("checked")) {
-              $(this).addClass('image-checkbox-checked');
-          }
-          else {
-              $(this).removeClass('image-checkbox-checked');
-          }
-      });
-
-      // sync the state to the input
-      $(".image-checkbox").on("click", function (e) {
-          if ($(this).hasClass('image-checkbox-checked')) {
-              $(this).removeClass('image-checkbox-checked');
-              $(this).find('input[type="checkbox"]').first().removeAttr("checked");
-          }
-          else {
-              $(this).addClass('image-checkbox-checked');
-              $(this).find('input[type="checkbox"]').first().attr("checked", "checked");
-          }
-
-          e.preventDefault();
-      });
-  });
-</script>
-
-
 @stop
 
 @section('content')
 
 
-    <div class="control">
-      <button type="submit" name="button is-link">Ask for Trade</button>
+    <div class="control" style="margin-left: 12%;">
+      <button type="submit" name="submit" class="button is-link rounded offset-md-4" style="border-radius: 5px;">Ask for Trade</button>
     </div>
 
 

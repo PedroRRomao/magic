@@ -1,0 +1,36 @@
+.c-check {
+  &__view {
+    box-shadow: 0px 15px 15px -8px rgba(238, 74, 69, .4);
+    display: block;
+    cursor: pointer;
+    width: 30%;
+    height: 10%;
+    background-color: #ee4a45;
+    border-radius: 25px;
+    position: relative;
+    transition: all 400ms;
+    margin-left: 35%;
+    margin-top: 5%;
+  }
+
+  input {
+    display: none;
+
+    &:active ~ .c-check__view {
+      transform: scale(.9);
+    }
+
+    &:checked ~ .c-check__view {
+      background-color: #75e681;
+      box-shadow: 0px 15px 15px -8px rgba(117, 230, 129, .4);
+
+      &:before {
+        width: 0;
+        border-left-width: 5px;
+        border-right-width: 5px;
+        border-radius: 10px;
+        left: 58px;
+      }
+    }
+  }
+}

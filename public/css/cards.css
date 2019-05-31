@@ -1,0 +1,30 @@
+#card{
+  max-width: 120px;
+  max-height: 190px;
+}
+
+
+input[type=checkbox] + label{
+  font-family: 'fontawesome', arial, sans-serif;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+}
+
+input[type=checkbox] + label:before {
+  display: inline-block;
+  font-size: 1.2em;
+  width: 1.2em;
+  vertical-align: -5%;
+  color: #007A8D;
+  content: '\f096';
+}
+
+input[type=checkbox]:checked + label:before {
+  display: inline-block;
+  font-size: 1.2em;
+  width: 1.2em;
+  vertical-align: -5%;
+  color: #007A8D;
+  content: '\f14a';
+}
